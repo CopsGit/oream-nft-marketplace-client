@@ -8,7 +8,7 @@ const contractAddress = import.meta.env.VITE_APP_CONTRACT_ADDRESS;
 
 export const StateContextProvider = ({children}) => {
     const {contract} = useContract(contractAddress)
-    const {mutateAsync: createCampaign} = useContractWrite(contract, 'createCampaign');
+    // const {mutateAsync: createCampaign} = useContractWrite(contract, 'createCampaign');
 
     const address = useAddress();
     const connect = useMetamask();
