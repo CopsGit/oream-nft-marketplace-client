@@ -2,34 +2,24 @@ import { createCampaign, dashboard, logout, payment, profile, withdraw } from '.
 
 export const navlinks = [
   {
-    name: 'dashboard',
+    name: 'Home',
     imgUrl: dashboard,
     link: '/',
   },
   {
-    name: 'campaign',
+    name: 'Explore',
     imgUrl: createCampaign,
-    link: '/create-campaign',
+    link: '/explore',
   },
   {
-    name: 'payment',
-    imgUrl: payment,
-    link: '/',
-    disabled: true,
+    name: 'Create',
+    imgUrl: logout,
+    link: '/create',
   },
   {
-    name: 'withdraw',
-    imgUrl: withdraw,
-    link: '/withdraw',
-  },
-  {
-    name: 'profile',
+    name: 'Profile',
     imgUrl: profile,
     link: '/profile',
-  },
-  {
-    name: 'logout',
-    imgUrl: logout,
-    link: '/logout',
+    // disabled: true,
   },
 ];
