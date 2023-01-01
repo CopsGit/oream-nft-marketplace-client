@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import {Create, Details, Explore, Home, Profile, Search} from './pages';
 import Navbar from "./components/Layout/Navbar";
+import Bottom from "./components/Layout/Bottom";
 
 
 const App = () => {
@@ -22,6 +23,8 @@ const App = () => {
                     <Route path="/profile/:id" element={<Profile />} />
                     <Route path="/details/:id" element={<Details />} />
                 </Routes>
+
+                <Bottom />
             </div>
         </div>
     )
