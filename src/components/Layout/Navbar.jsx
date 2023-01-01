@@ -1,7 +1,7 @@
 import React from 'react';
 import {navlinks} from "../../constants";
 import {Link} from "react-router-dom";
-import searchIcon from "../../assets/search.svg";
+import SearchIcon from '@mui/icons-material/Search';
 
 const Navbar = () => {
     return (
@@ -18,19 +18,18 @@ const Navbar = () => {
             </Link>
             <div className="
                 flex flex-row items-center justify-center md:w-1/4 lg:w-2/5 2xl:w-1/2
-            ">
-                <img src="../../assets/search.svg" alt="" className="
-                    w-5 h-5
-                "/>
-                <input type="text" className="
-                    w-4/5 h-10 rounded-lg bg-[#fe7700]/20 opacity-70 p-2 text-base text-[#fe7700] font-bold
+                w-4/5 h-10 rounded-lg bg-[#fe7700]/20 opacity-70 p-2 text-base text-[#fe7700] font-bold
                     focus:outline-none focus:ring-2 focus:ring-[#fe7700] focus:ring-opacity-50
                     hover:opacity-100 hover:bg-[#fe7700]/5 transition duration-600 ease-in-out
+            ">
+                <SearchIcon sx={{fontSize:'30px'}}/>
+                <input type="text" className="
+                    w-full h-full ml-2 bg-transparent text-[#fe7700] font-bold focus: border-none
+                    focus:outline-none focus: text-[#fe7700] transition duration-600 ease-in-out
                 " placeholder={"Search"} />
             </div>
             <ul className="
                     flex flex-row space-x-9 text-base font-medium text-[#fe7700] cursor-pointer
-
             ">
                 {
                     navlinks.map((link, index) => (
@@ -50,7 +49,7 @@ const Navbar = () => {
             </ul>
             <button className="
                         bg-[#fe7700] text-[#fff] font-bold text-base px-4 py-2 rounded-2xl transition duration-300 ease-in-out
-                        hover:bg-[#b15300] hover:text-[#fff] hover:font-bold hover:text-lg hover:px-4 hover:py-2
+                        hover:bg-[#b15300] hover:text-[#fff] hover:font-bold hover:px-4 hover:py-2
                     ">
                 Connect Wallet
             </button>
