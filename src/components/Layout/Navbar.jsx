@@ -1,6 +1,7 @@
 import React from 'react';
 import {navlinks} from "../../constants";
 import {Link} from "react-router-dom";
+import searchIcon from "../../assets/search.svg";
 
 const Navbar = () => {
     return (
@@ -15,9 +16,13 @@ const Navbar = () => {
                     OREAM
                 </h1>
             </Link>
-            <div>
+            <div className="
+                flex flex-row items-center justify-center md:w-1/4 lg:w-1/3 2xl:w-1/2
+            ">
                 <input type="text" className="
-                    w-full h-10 rounded-lg opacity-80 p-2 text-lg text-[#fe7700] font-bold
+                    w-4/5 h-10 rounded-lg bg-white/10 opacity-70 p-2 text-lg text-[#fe7700] font-bold
+                    focus:outline-none focus:ring-2 focus:ring-[#fe7700] focus:ring-opacity-50
+                    hover:opacity-100
                 " placeholder={"Search"} />
             </div>
             <ul className="
