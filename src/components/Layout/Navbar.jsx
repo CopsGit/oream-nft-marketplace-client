@@ -20,9 +20,9 @@ const Navbar = () => {
                 flex flex-row items-center justify-center md:w-1/4 lg:w-1/3 2xl:w-1/2
             ">
                 <input type="text" className="
-                    w-4/5 h-10 rounded-lg bg-white/10 opacity-70 p-2 text-lg text-[#fe7700] font-bold
+                    w-4/5 h-10 rounded-lg bg-[#fe7700]/20 opacity-70 p-2 text-lg text-[#fe7700] font-bold
                     focus:outline-none focus:ring-2 focus:ring-[#fe7700] focus:ring-opacity-50
-                    hover:opacity-100
+                    hover:opacity-100 hover:bg-[#fe7700]/5 transition duration-600 ease-in-out
                 " placeholder={"Search"} />
             </div>
             <ul className="
