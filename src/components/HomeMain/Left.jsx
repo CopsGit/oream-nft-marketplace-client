@@ -1,4 +1,6 @@
 import React from 'react';
+import {logoQ} from "../../assets";
+
 
 const HomeMainLeft = () => {
     return (
@@ -7,15 +9,17 @@ const HomeMainLeft = () => {
                 rounded-l-3xl shadow-lg
             ">
             <div className="
-                flex justify
+                flex flex-row items-center justify-between w-full mb-9
             ">
-                <p>
-                    Info
+                <p className="
+                text-xl text-[#8d1300] font-bold
+            ">
+                    INFO
                 </p>
-                <img src="../../logo.svg" alt=""/>
+                <img height="33px" width="33px" src={logoQ} alt=""/>
             </div>
             <p className="
-                text-xs
+                text-xs text-[#8d1300]
             ">
                 Oream is an NFT marketplace featuring a variety of digital collectibles including art, music, and virtual real estate.
             </p>

@@ -30,6 +30,7 @@ const Bottom = () => {
                 flex flex-row space-x-2
             ">
                 <a href=" " className="text-[#fff] hover:text-[#fe7700] transition duration-300 ease-in-out">Privacy Policy</a>
+                <span> / </span>
                 <a href=" " className="text-[#fff] hover:text-[#fe7700] transition duration-300 ease-in-out">Terms of Service</a>
             </div>
         </div>
