@@ -63,6 +63,7 @@ const HomeMainLeft = () => {
                 </p>
                 <div className="
                     h-[64px] w-[64px] bg-[#fff] rounded-full
+                    shadow-inner shadow-[#952500]
                 ">
                     <img height="64px" width="64px" src={oream} alt=""/>
                 </div>
@@ -173,7 +174,7 @@ const HomeMainLeft = () => {
                     ">
                         <p className="
                             text-[#8d1300] font-bold
-                        ">Average</p>
+                        ">Base</p>
                         {gasPrices?.ProposeGasPrice}
                     </div>
                     <p>

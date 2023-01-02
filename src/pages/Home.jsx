@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div className="
             flex flex-row justify-center bg-[#fff] items-center w-11/12 h-3/4 mx-auto mt-7
-            rounded-3xl shadow-2xl
+            rounded-3xl shadow-2xl shadow-[#ed3c00]
         ">
             <HomeMainLeft />
             <HomeMainRight />
