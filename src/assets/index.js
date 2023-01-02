@@ -13,6 +13,7 @@ import money from './money.svg';
 import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
 import logoQ from './logoQ.png';
+import oream from './OreamLogo.png';
 
 export {
   tagType,
@@ -29,5 +30,6 @@ export {
   money,
   loader,
   thirdweb,
-  logoQ
+  logoQ,
+  oream,
 };

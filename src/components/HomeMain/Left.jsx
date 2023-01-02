@@ -1,5 +1,5 @@
 import React from 'react';
-import {logoQ} from "../../assets";
+import {logoQ, oream} from "../../assets";
 
 
 const HomeMainLeft = () => {
@@ -16,7 +16,11 @@ const HomeMainLeft = () => {
             ">
                     INFO
                 </p>
-                <img height="33px" width="33px" src={logoQ} alt=""/>
+                <div className="
+                    h-[64px] w-[64px] bg-[#fff] rounded-full
+                ">
+                    <img height="64px" width="64px" src={oream} alt=""/>
+                </div>
             </div>
             <p className="
                 text-xs text-[#8d1300]
