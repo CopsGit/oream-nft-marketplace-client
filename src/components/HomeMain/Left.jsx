@@ -7,27 +7,46 @@ import {Link} from "react-router-dom";
 
 const HomeMainLeft = () => {
     const [prices, setPrices] = useState([]);
+    const [gasPrices, setGasPrices] = useState(null);
 
     const coins = ["bitcoin", "ethereum", "polygon", "binance-coin", "solana", "decentraland", "the-sandbox", "axie-infinity", "flow"]
 
-    let config = {
+    let configCoins = {
         method: 'get',
         url: 'https://api.coincap.io/v2/assets',
         headers: {}
     };
 
+    let configGas = {
+        method: 'get',
+        url: `https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${process.env.VITE_APP_ETHERSCAN_API_KEY}`,
+        headers: {}
+    }
+
     useEffect(() => {
-        axios(config)
-            .then(function (response) {
-                let data = response.data.data;
-                let filteredData = data.filter(coin => coins.includes(coin.id))
-                setPrices(filteredData)
-                console.log(filteredData)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }, []);
+        // setInterval(() => {
+            axios(configCoins)
+                .then(function (response) {
+                    let data = response.data.data;
+                    let filteredData = data.filter(coin => coins.includes(coin.id))
+                    setPrices(filteredData)
+                    console.log(filteredData)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+            axios(configGas)
+                .then(function (response) {
+                    let data = response.data.result;
+                    setGasPrices(data)
+                    console.log(data)
+                } )
+                .catch(function (error) {
+                    console.log(error);
+                })
+        // }, 5000)
+    }, [])
 
     return (
         <div className="
@@ -93,16 +112,16 @@ const HomeMainLeft = () => {
                 flex flex-col items-center justify-center w-full my-2
             ">
                 <p className="
-                    text-xs text-[#8d1300] font-bold mb-2
+                    text-xs text-[#fff] font-bold mb-2
                 ">
-                    Crypto Price
+                    Crypto Price(USD)
                 </p>
                 {
                     prices.map((price, index) =>
-                        <div className="
+                        <div key={index} className="
                     flex flex-row items-center justify-between w-full
                 ">
-                            <a href={price?.explorer} className="
+                            <a href={price?.explorer} target={"_blank"} className="
                                 text-xs text-[#8d1300] font-bold hover:text-[#fff]
                                 transition duration-300 ease-in-out
                             ">
@@ -124,6 +143,52 @@ const HomeMainLeft = () => {
                 backgroundColor: "#8d1300",
                 borderBottomWidth: 2
             }}/>
+
+            <div className="
+                flex flex-col items-center justify-center w-full my-2
+            ">
+                <p className="
+                    text-xs text-[#fff] font-bold mb-2
+                ">
+                    Ethereum Gas Price(Gwei)
+                </p>
+                <a href={"https://etherscan.io/gastracker"} target={"_blank"} className="
+                    flex flex-row items-center justify-around w-full text-xs
+                    bg-[#fff] rounded-lg shadow-lg p-1 text-[#fe7700] font-bold
+                    cursor-pointer mb-3
+                ">
+                    <div className="
+                        flex flex-col items-center justify-center
+                    ">
+                        <p className="
+                            text-[#8d1300] font-bold
+                        ">Fast</p>
+                        {gasPrices?.FastGasPrice}
+                    </div>
+                    <p>
+                        |
+                    </p>
+                    <div className="
+                        flex flex-col items-center justify-center
+                    ">
+                        <p className="
+                            text-[#8d1300] font-bold
+                        ">Average</p>
+                        {gasPrices?.ProposeGasPrice}
+                    </div>
+                    <p>
+                        |
+                    </p>
+                    <div className="
+                        flex flex-col items-center justify-center
+                    ">
+                        <p className="
+                            text-[#8d1300] font-bold
+                        ">Slow</p>
+                        {gasPrices?.SafeGasPrice}
+                    </div>
+                </a>
+            </div>
         </div>
     );
 };
