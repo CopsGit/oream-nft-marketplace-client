@@ -14,6 +14,7 @@ import loader from './loader.svg';
 import thirdweb from './thirdweb.png';
 import logoQ from './logoQ.png';
 import oream from './OreamLogo.png';
+import eth from './eth.svg';
 
 export {
   tagType,
@@ -32,4 +33,5 @@ export {
   thirdweb,
   logoQ,
   oream,
+  eth,
 };

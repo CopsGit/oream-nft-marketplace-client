@@ -1,4 +1,5 @@
 import React from 'react';
+import {eth} from "../../assets";
 
 const ItemList = () => {
 
@@ -63,7 +64,7 @@ const ItemList = () => {
 
     return (
         <div className="
-            flex flex-col h-3/5 w-full  px-5 py-3
+            flex flex-col h-3/5 w-full px-5 py-3
         ">
             <p className="
                 text-xl font-bold text-center text-[#fe7700]
@@ -91,10 +92,10 @@ const ItemList = () => {
                             </div>
 
                             <div className="
-                            flex flex-row justify-between items-center
-                            h-2/6 w-full bg-white
+                            flex flex-row justify-around items-center
+                            h-1/6 w-full bg-white
                             border-2 border-[#fe7700] rounded-2xl
-                            my-2
+                            my-2 cursor-pointer
                         ">
                                 <div className="
                                 flex flex-row justify-center items-center
@@ -102,9 +103,19 @@ const ItemList = () => {
                             ">
                                     <div className="
                                     text-xs font-bold text-[#fe7700]
+                                    flex flex-row justify-center items-center
                                 ">
-                                        {item.floorPrice} ETH
+                                        <img src={eth} className="
+                                        h-4 w-4
+                                        " alt=""/>
+                                        {item.floorPrice}
                                     </div>
+                                </div>
+                                <div className="
+                                flex flex-row justify-center items-center
+                                    text-[#fe7700] font-bold text-xs
+                                ">
+                                    |
                                 </div>
                                 <div className="
                                 flex flex-row justify-center items-center
@@ -112,8 +123,12 @@ const ItemList = () => {
                             ">
                                     <div className="
                                     text-xs font-bold text-[#fe7700]
+                                    flex flex-row justify-center items-center
                                 ">
-                                        {item.Volume24h} ETH
+                                        <img src={eth} className="
+                                        h-4 w-4
+                                        " alt=""/>
+                                        {item.Volume24h}
                                     </div>
                                 </div>
                             </div>

@@ -47,7 +47,7 @@ const MainCarousel = () => {
 
     return (
             <div className="
-                flex flex-col h-3/5 w-full  p-5
+                flex flex-col h-3/5 w-full px-5 pt-5
             ">
                 <div className="
                     flex flex-row justify-between items-center
@@ -75,7 +75,7 @@ const MainCarousel = () => {
                     }
                 </p>
                 <div className="
-                    flex flex-row justify-center items-center h-48 w-full
+                    flex flex-row justify-center items-center h-50 w-full
                     bg-amber-400 rounded-2xl shadow-lg overflow-hidden
                 ">
                     <button className="
@@ -118,7 +118,7 @@ const MainCarousel = () => {
                 </div>
                 <div className="
                     flex flex-row justify-between items-center h-10 w-full
-                    mt-2
+                    mt-2 relative bottom-7
                 ">
                     {
                         data.map((item, index) => {
@@ -130,7 +130,7 @@ const MainCarousel = () => {
                                     transition duration-300 ease-in-out
                                     border-2 border-[#fe7700]
                                     hover:border-[#fff] 
-                                    ${current === index ? "bg-[#fe7700]" : ""}
+                                    ${current === index ? "bg-[#fe7700] border-[#fff]" : ""}
                                 `} onClick={() => setCurrent(index)}></div>
                             )
                         })
