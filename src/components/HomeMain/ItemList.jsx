@@ -1,5 +1,6 @@
 import React from 'react';
 import {eth} from "../../assets";
+import Card from "../Cards/Card";
 
 const ItemList = () => {
 
@@ -7,7 +8,7 @@ const ItemList = () => {
     const data = [
         {
             id: 1,
-            name: "Oream Seris 1",
+            name: "Oream Series 1",
             image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
             description: des,
             floorPrice: 0.1,
@@ -18,7 +19,7 @@ const ItemList = () => {
         },
         {
             id: 2,
-            name: "Oream Seris 2",
+            name: "Oream Series 2",
             image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
             description: des,
             floorPrice: 0.1,
@@ -29,7 +30,7 @@ const ItemList = () => {
         },
         {
             id: 3,
-            name: "Oream Seris 3",
+            name: "Oream Series 3",
             image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
             description: des,
             floorPrice: 0.1,
@@ -40,7 +41,7 @@ const ItemList = () => {
         },
         {
             id: 4,
-            name: "Oream Seris 4",
+            name: "Oream Series 4",
             image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
             description: des,
             floorPrice: 0.1,
@@ -51,7 +52,7 @@ const ItemList = () => {
         },
         {
             id: 5,
-            name: "Oream Seris 5",
+            name: "Oream Series 5",
             image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
             description: des,
             floorPrice: 0.1,
@@ -77,64 +78,8 @@ const ItemList = () => {
             ">
                 {
                     data.map((item) => (
-                        <div className="
-                            flex flex-col h-full w-2/12
-                        ">
-                            <div className="
-                                h-full w-full
-                                rounded-2xl
-                            ">
-                                <img src={item.image
-                                } alt="" className="
-                                h-full w-full
-                                rounded-2xl
-                            "/>
-                            </div>
-
-                            <div className="
-                            flex flex-row justify-around items-center
-                            h-1/6 w-full bg-white
-                            border-2 border-[#fe7700] rounded-2xl
-                            my-2 cursor-pointer
-                        ">
-                                <div className="
-                                flex flex-row justify-center items-center
-                                w-1/3
-                            ">
-                                    <div className="
-                                    text-xs font-bold text-[#fe7700]
-                                    flex flex-row justify-center items-center
-                                ">
-                                        <img src={eth} className="
-                                        h-4 w-4
-                                        " alt=""/>
-                                        {item.floorPrice}
-                                    </div>
-                                </div>
-                                <div className="
-                                flex flex-row justify-center items-center
-                                    text-[#fe7700] font-bold text-xs
-                                ">
-                                    |
-                                </div>
-                                <div className="
-                                flex flex-row justify-center items-center
-                                w-1/3
-                            ">
-                                    <div className="
-                                    text-xs font-bold text-[#fe7700]
-                                    flex flex-row justify-center items-center
-                                ">
-                                        <img src={eth} className="
-                                        h-4 w-4
-                                        " alt=""/>
-                                        {item.Volume24h}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Card item={item}/>
                     ))
-
                 }
             </div>
         </div>

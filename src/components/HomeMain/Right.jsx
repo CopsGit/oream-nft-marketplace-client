@@ -6,7 +6,7 @@ import {Divider} from "@mui/material";
 const HomeMainRight = () => {
     return (
         <div className="
-                flex flex-col bg-[#e6e7e9] h-full w-full px-5
+                flex flex-col bg-[#e6e7e9] h-full w-full px-3
                 rounded-r-3xl shadow-lg
             ">
             <MainCarousel />
