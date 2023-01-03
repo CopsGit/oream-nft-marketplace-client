@@ -49,11 +49,23 @@ const MainCarousel = () => {
             <div className="
                 flex flex-col h-3/5 w-full  p-5
             ">
-                <p className="
+                <div className="
+                    flex flex-row justify-between items-center
+                ">
+                    <p className="
                     text-3xl text-[#fe7700] font-bold w-full text-left mb-1
                 ">
-                    {data[current].name}
-                </p>
+                        {data[current].name}
+                    </p>
+                    {/*<div className="*/}
+                    {/*    flex flex-row justify-center items-center h-10 w-1/2 ml-2*/}
+                    {/*    rounded-2xl shadow-lg text-[#fe7700] font-bold text-sm*/}
+                    {/*    border-[#fe7700] border-2*/}
+                    {/*">*/}
+                    {/*    Floor Price : 0.1 ETH*/}
+                    {/*</div>*/}
+                </div>
+
                 <p className="
                     text-xs text-[#808080] font-bold mb-1.5 w-full text-left
                     flex flex-row justify-center items-center h-20
