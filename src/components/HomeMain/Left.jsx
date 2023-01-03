@@ -3,6 +3,7 @@ import {logoQ, oream} from "../../assets";
 import {Divider} from "@mui/material";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import Bottom from "../Layout/Bottom";
 
 
 const HomeMainLeft = () => {

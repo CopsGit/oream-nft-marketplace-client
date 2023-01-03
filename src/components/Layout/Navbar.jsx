@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 const Navbar = () => {
     return (
         <div className="
-            flex flex-row justify-between bg-[#fff] items-center w-11/12 h-16 mx-auto my-7 p-5
+            flex flex-row justify-between bg-[#fff] items-center w-11/12 h-16 mx-auto my-5 p-5
             rounded-3xl shadow-lg text-base
         ">
             <Link to={"/"}>
