@@ -1,28 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {eth} from "../../assets";
+import {Link} from "react-router-dom";
 
 const Card = ({item}) => {
-
-    const hover = <div className="
-                    flex flex-row justify-center items-center
-                    relative bottom-1/2
-                ">
-        <button className="
-                    flex flex-row justify-center items-center h-1/5 w-4/5
-                    bg-[#fff] rounded-xl shadow-xl text-[#fe7700]
-                    hover:bg-[#fe7700] hover:shadow-none hover:text-white
-                    transition-all duration-300 ease-in-out
-                ">
-            View
-        </button>
-    </div>
-
-    const handleEnter = (e) => {
-        // e.target.style.transform = "scale(1.1)";
-        // e.target.style.transition = "all 0.3s ease-in-out";
-        // e.target.style.zIndex = 1;
-        e.target.appendChild(hover);
-    }
+    const [show, setShow] = useState(false);
 
     return (
         <div className="
@@ -34,11 +15,53 @@ const Card = ({item}) => {
                 transition duration-300 ease-in-out
                 hover:shadow-none hover:scale-105
             " onMouseEnter={
-                (e) => handleEnter(e)
-            }>
-                <img src={item.image} alt="" className="
-                    h-full w-full object-cover
-                "/>
+                (e) => {setShow(true)}
+            }
+                    onMouseLeave={
+                        (e) => {setShow(false)}
+                    }
+            >
+                <img src={item.image} alt="" className={`
+                    h-full w-full object-cover ${show ? "opacity-50" : "opacity-100"}
+                    transition duration-300 ease-in-out
+                    `}/>
+                <div className={`
+                    flex flex-col justify-center items-center
+                    relative bottom-3/4 ${show ? "opacity-100" : "opacity-0"}
+                    `}>
+                    <div className="
+                        flex flex-row justify-center items-center
+                        h-12 w-11/12 shadow-xl text-[#fff]
+                        text-sm font-bold
+
+                    ">
+                        {item.name}
+                    </div>
+                    <div className="
+                        flex flex-row justify-center items-center
+                        h-12 w-11/12 shadow-xl text-[#fff]
+                        text-xs font-bold
+                    ">
+                        Floor Price:
+                        <div className="
+                                    text-xs font-bold text-[#fff]
+                                    flex flex-row justify-center items-center
+                                ">
+                            <img src={eth} className="
+                                        h-4 w-4
+                                        " alt=""/>
+                            {item.floorPrice}
+                        </div>
+                    </div>
+                    <Link to={`/collection/${item.id}`}  className="
+                    flex flex-row justify-center items-center h-1/5 w-4/5
+                    bg-[#fff] rounded-xl shadow-xl text-[#fe7700]
+                    hover:bg-[#fe7700] hover:shadow-none hover:text-white
+                    transition-all duration-300 ease-in-out
+                ">
+                        View
+                    </Link>
+                </div>
             </div>
             <div className="
                             flex flex-row justify-around items-center
