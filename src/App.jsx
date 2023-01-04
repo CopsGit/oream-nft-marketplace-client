@@ -12,7 +12,7 @@ const App = () => {
             {/*    <Sidebar />*/}
             {/*</div>*/}
 
-            <div className="flex-1 max-sm:w-full mx-auto sm:pr-5 bg-gradient-to-r from-[#ef3c00] to-[#130604]">
+            <div className="flex-1 max-w-full max-sm:w-full mx-auto sm:pr-5 bg-gradient-to-r from-[#ef3c00] to-[#130604]">
                 <Navbar />
 
                 <Routes>
