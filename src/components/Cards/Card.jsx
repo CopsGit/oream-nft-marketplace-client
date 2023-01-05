@@ -31,7 +31,7 @@ const Card = ({item}) => {
                     `}>
                     <div className="
                         flex flex-row justify-center items-center
-                        h-12 w-11/12 shadow-xl text-[#fff]
+                        h-12 w-11/12 text-[#fff]
                         text-sm font-bold
 
                     ">
@@ -39,7 +39,7 @@ const Card = ({item}) => {
                     </div>
                     <div className="
                         flex flex-row justify-center items-center
-                        h-12 w-11/12 shadow-xl text-[#fff]
+                        h-12 w-11/12 text-[#fff]
                         text-xs font-bold
                     ">
                         Floor Price:
@@ -47,9 +47,7 @@ const Card = ({item}) => {
                                     text-xs font-bold text-[#fff]
                                     flex flex-row justify-center items-center
                                 ">
-                            <img src={eth} className="
-                                        h-4 w-4
-                                        " alt=""/>
+                            <img src={eth} className="h-4 w-4" alt=""/>
                             {item.floorPrice}
                         </div>
                     </div>

@@ -22,7 +22,7 @@ const Offers = ({curItem}) => {
                 </p>
                 <div className="
                     flex flex-col justify-start items-start w-full
-                    px-2 h-full overflow-y-scroll scrollbar-hide scrollbar-thumb-[#fe7700] scrollbar-track-[#fff] scrollbar-thin
+                    px-2 h-full overflow-y-auto scrollbar-hide scrollbar-thumb-[#fe7700] scrollbar-track-[#fff] scrollbar-thin
                 ">
                     <div className="
                                     flex flex-row justify-between items-center
@@ -88,9 +88,7 @@ const Offers = ({curItem}) => {
                                             text-lg font-bold text-[#808080] mt-1
                                             flex flex-row justify-center items-center
                                         ">
-                                            <img src={eth} className="
-                                        h-4 w-4
-                                        " alt=""/>
+                                            <img src={eth} className="h-4 w-4" alt=""/>
                                             {offer?.price}
                                         </p>
                                     </div>

@@ -18,6 +18,7 @@ const initialState = {
             creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
             contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
             royalty: 10,
+            rank: 1,
         },
         {
             id: 2,
@@ -32,6 +33,7 @@ const initialState = {
             creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
             contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
             royalty: 10,
+            rank: 2,
         },
         {
             id: 3,
@@ -46,6 +48,7 @@ const initialState = {
             creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
             contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
             royalty: 10,
+            rank: 3,
         },
         {
             id: 4,
@@ -60,6 +63,7 @@ const initialState = {
             creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
             contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
             royalty: 10,
+            rank: 4,
         },
         {
             id: 5,
@@ -74,6 +78,7 @@ const initialState = {
             creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
             contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
             royalty: 10,
+            rank: 5,
         }
     ],
     offers: [
@@ -81,43 +86,50 @@ const initialState = {
             id: 1,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.1,
-            expiration: "1 D"
+            expiration: "1 D",
+            rank: 1,
         },
         {
             id: 2,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.2,
-            expiration: "2 D"
+            expiration: "2 D",
+            rank: 2,
         },
         {
             id: 3,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.12,
-            expiration: "20 H"
+            expiration: "20 H",
+            rank: 3,
         },
         {
             id: 4,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.11,
-            expiration: "1 H"
+            expiration: "1 H",
+            rank: 4,
         },
         {
             id: 5,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.31,
-            expiration: "5 D"
+            expiration: "5 D",
+            rank: 5,
         },
         {
             id: 6,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.11,
-            expiration: "1 H"
+            expiration: "1 H",
+            rank: 6,
         },
         {
             id: 7,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.31,
-            expiration: "5 D"
+            expiration: "5 D",
+            rank: 7,
         }
     ]
 }

@@ -7,7 +7,7 @@ import Bottom from "./components/Layout/Bottom";
 
 const App = () => {
     return (
-        <div className="relative sm:-8 h-screen flex flex-row">
+        <div className="relative sm:-8 h-full flex flex-row">
             {/*<div className="sm:flex hidden mr-10 relative">*/}
             {/*    <Sidebar />*/}
             {/*</div>*/}
