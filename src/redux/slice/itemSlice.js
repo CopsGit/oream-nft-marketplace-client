@@ -81,31 +81,43 @@ const initialState = {
             id: 1,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.1,
-            expiration: "1 day"
+            expiration: "1 D"
         },
         {
             id: 2,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.2,
-            expiration: "2 days"
+            expiration: "2 D"
         },
         {
             id: 3,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.12,
-            expiration: "20 minutes"
+            expiration: "20 H"
         },
         {
             id: 4,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.11,
-            expiration: "1 hour"
+            expiration: "1 H"
         },
         {
             id: 5,
             address: "0xFF879627bE071319123e49D67cA5b982cE000000",
             price: 0.31,
-            expiration: "5 days"
+            expiration: "5 D"
+        },
+        {
+            id: 6,
+            address: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            price: 0.11,
+            expiration: "1 H"
+        },
+        {
+            id: 7,
+            address: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            price: 0.31,
+            expiration: "5 D"
         }
     ]
 }
