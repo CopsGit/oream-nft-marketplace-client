@@ -14,7 +14,10 @@ const initialState = {
             Volume24h: 20,
             totalVolume: 100,
             totalSupply: 1000,
-            totalHolders: 600
+            totalHolders: 600,
+            creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            royalty: 10,
         },
         {
             id: 2,
@@ -25,7 +28,10 @@ const initialState = {
             Volume24h: 20,
             totalVolume: 100,
             totalSupply: 1000,
-            totalHolders: 600
+            totalHolders: 600,
+            creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            royalty: 10,
         },
         {
             id: 3,
@@ -36,7 +42,10 @@ const initialState = {
             Volume24h: 20,
             totalVolume: 100,
             totalSupply: 1000,
-            totalHolders: 600
+            totalHolders: 600,
+            creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            royalty: 10,
         },
         {
             id: 4,
@@ -47,7 +56,10 @@ const initialState = {
             Volume24h: 20,
             totalVolume: 100,
             totalSupply: 1000,
-            totalHolders: 600
+            totalHolders: 600,
+            creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            royalty: 10,
         },
         {
             id: 5,
@@ -58,7 +70,10 @@ const initialState = {
             Volume24h: 20,
             totalVolume: 100,
             totalSupply: 1000,
-            totalHolders: 600
+            totalHolders: 600,
+            creator: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            contractAddress: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            royalty: 10,
         }
     ],
 }
