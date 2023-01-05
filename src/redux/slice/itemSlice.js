@@ -76,6 +76,38 @@ const initialState = {
             royalty: 10,
         }
     ],
+    offers: [
+        {
+            id: 1,
+            address: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            price: 0.1,
+            expiration: "1 day"
+        },
+        {
+            id: 2,
+            address: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            price: 0.2,
+            expiration: "2 days"
+        },
+        {
+            id: 3,
+            address: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            price: 0.12,
+            expiration: "20 minutes"
+        },
+        {
+            id: 4,
+            address: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            price: 0.11,
+            expiration: "1 hour"
+        },
+        {
+            id: 5,
+            address: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            price: 0.31,
+            expiration: "5 days"
+        }
+    ]
 }
 
 export const itemSlice = createSlice({
