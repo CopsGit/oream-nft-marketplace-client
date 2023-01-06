@@ -1,9 +1,27 @@
 import React from 'react';
 import {eth} from "../../assets";
 import {useSelector} from "react-redux";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 const DetailActivities = () => {
     const activities = useSelector(state => state.item.activities);
+
+    const eventIcon = (event) => {
+        switch (event) {
+            case "Offer":
+                return <ShoppingCartIcon className="text-[#fe7700] mr-2"/>
+            case "Bid":
+                return <ShoppingCartIcon className="text-[#fe7700] mr-2"/>
+            case "Sale":
+                return <ShoppingCartIcon className="text-[#fe7700] mr-2"/>
+            case "Transfer":
+                return <CompareArrowsIcon className="text-[#fe7700] mr-2"/>
+            default:
+                return <AutoAwesomeIcon className="text-[#fe7700] mr-2"/>
+        }
+    }
 
     return (
         <div className="
@@ -103,6 +121,7 @@ const DetailActivities = () => {
                                             text-lg font-bold text-[#808080] mt-1
                                             flex flex-row justify-center items-center
                                         ">
+                                                    {eventIcon(activity.event)}
                                                     {activity.event}
                                                 </p>
                                             </div>
