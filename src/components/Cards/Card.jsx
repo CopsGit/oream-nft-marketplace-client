@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 import {eth} from "../../assets";
 import {Link, useNavigate} from "react-router-dom";
 
-const Card = ({item}) => {
+const Card = ({item, type}) => {
     const [show, setShow] = useState(false);
     const navigate = useNavigate()
+
     const handleClick = () => {
-        navigate(`/collection/${item.id}`)
+        navigate(`/${type}/${item.id}`)
         window.location.reload()
     }
 

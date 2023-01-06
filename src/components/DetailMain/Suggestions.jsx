@@ -25,7 +25,7 @@ const Suggestions = () => {
                         ">
                     {
                         items.map(item => (
-                            <Card item={item}/>
+                            <Card item={item} type={"detail"}/>
                         ))
                     }
                 </div>

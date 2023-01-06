@@ -21,7 +21,7 @@ const ItemList = () => {
             ">
                 {
                     data.map((item) => (
-                        <Card item={item}/>
+                        <Card item={item} type={"collection"}/>
                     ))
                 }
             </div>

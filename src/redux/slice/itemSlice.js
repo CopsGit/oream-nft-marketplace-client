@@ -132,6 +132,48 @@ const initialState = {
             rank: 7,
         },
 
+    ],
+    activities: [
+        {
+            id: 1,
+            event: "Transfer",
+            price: null,
+            from: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            to: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            date: "1 D ago",
+        },
+        {
+            id: 2,
+            event: "Sale",
+            price: 0.2,
+            from: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            to: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            date: "1 D ago",
+        },
+        {
+            id: 3,
+            event: "Transfer",
+            price: null,
+            from: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            to: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            date: "1 D ago",
+        },
+        {
+            id: 4,
+            event: "Sale",
+            price: 0.1,
+            from: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            to: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            date: "2 D ago",
+        },
+        {
+            id: 5,
+            event: "Minted",
+            price: null,
+            from: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            to: "0xFF879627bE071319123e49D67cA5b982cE000000",
+            date: "3 D ago",
+        },
     ]
 }
 

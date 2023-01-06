@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import Left from "../components/DetailMain/Left";
 import Right from "../components/DetailMain/Right";
 import Suggestions from "../components/DetailMain/Suggestions";
+import DetailActivities from "../components/DetailMain/Activities";
 
 const Details = () => {
     const curItemId = window.location.pathname.split("/")[2];
@@ -16,7 +17,7 @@ const Details = () => {
             {/*h-5/6 */}
         ">
             <div className="w-full h-full bg-[#e6e7e9]
-            flex flex-row justify-center items-center
+            flex flex-row justify-center items-start
         ">
                 <Left curItem={curItem}/>
                 <Right curItem={curItem}/>
@@ -25,6 +26,7 @@ const Details = () => {
                 flex flex-col justify-start items-center w-full h-1/2
                 bg-[#e6e7e9]
             ">
+                <DetailActivities/>
                 <Suggestions/>
             </div>
         </div>
