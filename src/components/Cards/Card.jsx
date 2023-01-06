@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import {eth} from "../../assets";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const Card = ({item}) => {
     const [show, setShow] = useState(false);
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate(`/collection/${item.id}`)
+        window.location.reload()
+    }
 
     return (
         <div className="
@@ -51,14 +56,14 @@ const Card = ({item}) => {
                             {item.floorPrice}
                         </div>
                     </div>
-                    <Link to={`/collection/${item.id}`}  className="
+                    <button onClick={handleClick} className="
                     flex flex-row justify-center items-center h-1/5 w-4/5
                     bg-[#fff] rounded-xl shadow-xl text-[#fe7700]
                     hover:bg-[#fe7700] hover:shadow-none hover:text-white
                     transition-all duration-300 ease-in-out
                 ">
                         View
-                    </Link>
+                    </button>
                 </div>
             </div>
             <div className="
