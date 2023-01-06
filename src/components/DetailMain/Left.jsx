@@ -5,7 +5,7 @@ const DetailMainLeft = ({curItem}) => {
     return (
         <div className="
                 flex flex-col bg-[#e6e7e9] h-full w-1/2 p-5
-rounded-l-3xl shadow-lg
+rounded-l-3xl
             ">
             <div className="
                     flex flex-row justify-between

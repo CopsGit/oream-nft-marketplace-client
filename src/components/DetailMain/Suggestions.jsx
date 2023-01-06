@@ -21,7 +21,7 @@ const Suggestions = () => {
                 </p>
                 <div className="
                     flex flex-row justify-around items-center w-full
-                    h-full
+                    h-64
                         ">
                     {
                         items.map(item => (

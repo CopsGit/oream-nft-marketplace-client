@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import {Create, Details, Explore, Home, Profile, Search} from './pages';
 import Navbar from "./components/Layout/Navbar";
 import Bottom from "./components/Layout/Bottom";
+import Collection from "./pages/Collection";
 
 
 const App = () => {
@@ -21,8 +22,8 @@ const App = () => {
                     <Route path="/search" element={<Search />} />
                     <Route path="/create" element={<Create />} />
                     <Route path="/profile/:id" element={<Profile />} />
-                    <Route path="/collection/:id" element={<Details />} />
-                    <Route path="/nft/:id" element={<Details />} />
+                    <Route path="/collection/:id" element={<Collection />} />
+                    <Route path="/detail/:id" element={<Details />} />
                 </Routes>
 
                 <Bottom />

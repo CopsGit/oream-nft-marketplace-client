@@ -130,7 +130,8 @@ const initialState = {
             price: 0.31,
             expiration: "5 D",
             rank: 7,
-        }
+        },
+
     ]
 }
 

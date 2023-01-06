@@ -7,8 +7,9 @@ const Offers = ({curItem}) => {
     console.log(offers);
     return (
         <div className="
-                flex flex-col justify-between items-center h-1/2
+                flex flex-col justify-between items-center
                 w-full bg-[#fff] py-3 px-2 rounded-2xl shadow-lg
+                mt-3
             ">
             <div className="
                 flex flex-col justify-start items-start w-full
@@ -22,7 +23,7 @@ const Offers = ({curItem}) => {
                 </p>
                 <div className="
                     flex flex-col justify-start items-start w-full
-                    px-2 h-full overflow-y-auto scrollbar-hide scrollbar-thumb-[#fe7700] scrollbar-track-[#fff] scrollbar-thin
+                    px-2 max-h-fit overflow-y-auto scrollbar-hide scrollbar-thumb-[#fe7700] scrollbar-track-[#fff] scrollbar-thin
                 ">
                     <div className="
                                     flex flex-row justify-between items-center
