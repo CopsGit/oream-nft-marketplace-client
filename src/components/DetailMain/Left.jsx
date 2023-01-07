@@ -1,5 +1,6 @@
 import React from 'react';
 import {eth} from "../../assets";
+import {Link} from "react-router-dom";
 
 const DetailMainLeft = ({curItem}) => {
     return (
@@ -15,14 +16,22 @@ rounded-l-3xl
             </div>
             <div className="
                     flex flex-col justify-start items-start
-                    w-full h-full bg-[#fff] p-3 rounded-2xl shadow-lg
-                    mt-3
+                    w-full h-full bg-[#fff] py-3 rounded-2xl shadow-lg
+                    mt-3 px-6
             ">
                 <p className="
                         text-lg font-bold text-[#808080]
                         flex flex-row justify-center items-center
                 ">
-                    Collection: {curItem?.name}
+                    Collection:
+                    <Link to={`/collection/${curItem?.name}`} className="
+                        text-lg font-bold text-[#fe7700] ml-1
+                        flex flex-row justify-center items-center
+                        hover:text-[#b15300]
+                        transition duration-300 ease-in-out
+                    ">
+                        {curItem?.name}
+                    </Link>
                 </p>
                 <div className="
                         flex flex-row justify-between items-center

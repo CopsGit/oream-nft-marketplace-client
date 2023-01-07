@@ -9,10 +9,6 @@ import Collection from "./pages/Collection";
 const App = () => {
     return (
         <div className="relative sm:-8 h-full flex flex-row">
-            {/*<div className="sm:flex hidden mr-10 relative">*/}
-            {/*    <Sidebar />*/}
-            {/*</div>*/}
-
             <div className="flex-1 max-w-full max-sm:w-full mx-auto sm:pr-5 bg-gradient-to-r from-[#ef3c00] to-[#130604]">
                 <Navbar />
 
