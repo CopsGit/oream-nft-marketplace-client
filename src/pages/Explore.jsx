@@ -5,6 +5,7 @@ import {Grid} from "@mui/material";
 
 const Explore = () => {
     const data = useSelector(state => state.item.data);
+    const datas = [...data, ...data, ...data, ...data, ...data]
 
 
     return (
@@ -24,7 +25,7 @@ const Explore = () => {
             flex flex-row justify-start items-start
         ">
                 {
-                    data.map((item) => (
+                    datas.map((item) => (
                         <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={item.id}>
                             <CollectionCard item={item} type={"collection"}/>
                         </Grid>

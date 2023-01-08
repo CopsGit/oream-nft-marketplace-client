@@ -12,6 +12,7 @@ const CollectionCard = ({item, type}) => {
     return (
         <div className="
                             flex flex-col w-full aspect-square
+
                         "
                 onClick={handleClick}
         >
@@ -19,7 +20,7 @@ const CollectionCard = ({item, type}) => {
                 h-full w-full overflow-hidden
                 rounded-2xl shadow-lg cursor-pointer
                 transition duration-300 ease-in-out
-                hover:scale-105
+                hover:scale-105 bg-[#fff]
             ">
                 <img src={item.image} alt="" className={`
                     h-3/5 w-full object-cover
