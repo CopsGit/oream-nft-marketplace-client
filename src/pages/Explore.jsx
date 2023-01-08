@@ -17,7 +17,6 @@ const Explore = () => {
             <p className="
                         text-[#fe7700] font-bold text-2xl
                         mb-5 mt-2
-
             ">
                 Explore collections
             </p>

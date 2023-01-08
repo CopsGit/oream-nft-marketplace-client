@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {eth} from "../../assets";
 import {useNavigate} from "react-router-dom";
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 const CollectionCard = ({item, type}) => {
     const navigate = useNavigate()
@@ -44,10 +45,11 @@ const CollectionCard = ({item, type}) => {
                         " src={item.image} alt=""/>
                     </div>
                     <div className="
-                        flex flex-col justify-center items-center
-                        h-12 text-[#fe7700] text-lg font-bold
+                        flex flex-row justify-center items-center
+                        h-12 text-[#fe7700] text-md font-bold
                     ">
-                        {item.name}
+                        {item.name} &nbsp;
+                        <VerifiedIcon className="text-[#fe7700]"/>
                     </div>
                 </div>
                 <div className="
