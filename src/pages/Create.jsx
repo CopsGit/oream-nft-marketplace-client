@@ -13,7 +13,7 @@ const Create = () => {
                 <p className="
                     text-3xl font-bold text-[#fe7700] mt-3
                 ">
-                    Create New NFT Item
+                    Create a New NFT Item
                 </p>
             <form action="" className="
                 flex flex-col items-center justify-center
