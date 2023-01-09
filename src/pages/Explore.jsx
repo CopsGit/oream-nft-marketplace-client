@@ -2,10 +2,11 @@ import React from 'react';
 import CollectionCard from "../components/Cards/CollectionCard";
 import {useSelector} from "react-redux";
 import {Grid} from "@mui/material";
+import CardsList from "../components/Cards/CardsList";
 
 const Explore = () => {
     const data = useSelector(state => state.item.data);
-    const datas = [...data, ...data, ...data, ...data, ...data]
+    const items = [...data, ...data, ...data, ...data, ...data]
 
 
     return (
@@ -20,17 +21,7 @@ const Explore = () => {
             ">
                 Explore collections
             </p>
-            <Grid container spacing={2} className="w-full h-full bg-[#e6e7e9]
-            flex flex-row justify-start items-start
-        ">
-                {
-                    datas.map((item) => (
-                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={item.id}>
-                            <CollectionCard item={item} type={"collection"}/>
-                        </Grid>
-                    ))
-                }
-            </Grid>
+            <CardsList items={items} type={"collection"}/>
         </div>
     );
 };

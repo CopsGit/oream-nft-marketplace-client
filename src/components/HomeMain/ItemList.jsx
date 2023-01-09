@@ -1,6 +1,6 @@
 import React from 'react';
 import {eth} from "../../assets";
-import Card from "../Cards/Card";
+import HomeCollectionCard from "../Cards/HomeCollectionCard";
 import {useSelector} from "react-redux";
 
 const ItemList = () => {
@@ -21,7 +21,7 @@ const ItemList = () => {
             ">
                 {
                     data.map((item) => (
-                        <Card item={item} type={"collection"}/>
+                        <HomeCollectionCard item={item} type={"collection"}/>
                     ))
                 }
             </div>

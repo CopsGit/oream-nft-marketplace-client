@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import Card from "../Cards/Card";
+import HomeCollectionCard from "../Cards/HomeCollectionCard";
 
 const Suggestions = () => {
     const items = useSelector(state => state.item.data)
@@ -25,7 +25,7 @@ const Suggestions = () => {
                         ">
                     {
                         items.map(item => (
-                            <Card item={item} type={"detail"}/>
+                            <HomeCollectionCard item={item} type={"detail"}/>
                         ))
                     }
                 </div>

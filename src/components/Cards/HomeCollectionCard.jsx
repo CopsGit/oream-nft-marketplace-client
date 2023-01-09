@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {eth} from "../../assets";
 import {Link, useNavigate} from "react-router-dom";
 
-const Card = ({item, type}) => {
+const HomeCollectionCard = ({item, type}) => {
     const [show, setShow] = useState(false);
     const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ const Card = ({item, type}) => {
 
     return (
         <div className="
-                            flex flex-col h-full w-1/6
+                            flex flex-col h-full mx-1
                         ">
             <div className="
                 h-full w-full overflow-hidden
@@ -112,4 +112,4 @@ const Card = ({item, type}) => {
     );
 };
 
-export default Card;
+export default HomeCollectionCard;
