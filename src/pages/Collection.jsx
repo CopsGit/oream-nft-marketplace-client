@@ -16,9 +16,15 @@ const Collection = () => {
 
         ">
             <img className="
-                w-full h-60
+                w-full h-60 object-cover
             " src={data.image} alt="banner"/>
-            <CollectionInfo data={data}/>
+            <div className="
+                flex flex-row justify-between items-center
+                relative bottom-1/2
+            ">
+                <CollectionInfo data={data}/>
+            </div>
+
             <div className="
                 w-11/12 my-3
             ">

@@ -8,6 +8,7 @@ const CollectionCard = ({item, type}) => {
 
     const handleClick = () => {
         navigate(`/${type}/${item.id}`)
+        scroll(0, 0)
         window.location.reload()
     }
     return (
