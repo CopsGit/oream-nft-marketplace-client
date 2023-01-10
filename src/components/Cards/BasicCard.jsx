@@ -33,23 +33,10 @@ const BasicCard = ({item, type}) => {
                     `}>
                     <div className="
                         flex flex-row justify-center items-center
-                        h-12 text-[#fff] w-1/4 aspect-square
-                        text-sm font-bold relative bottom-1/4
-                    ">
-                        <img className="
-                            w-full aspect-square object-cover
-                            rounded-xl shadow-lg cursor-pointer
-                            transition duration-300 ease-in-out
-                            hover:shadow-none hover:scale-105
-                            border-4 border-[#fff]
-                        " src={item?.image} alt=""/>
-                    </div>
-                    <div className="
-                        flex flex-row justify-center items-center
                         h-12 text-[#fe7700] text-md font-bold
                     ">
                         {item?.name} &nbsp;
-                        <VerifiedIcon className="text-[#fe7700]"/>
+                        #000{item?.id}
                     </div>
                 </div>
                 <div className="
@@ -60,7 +47,7 @@ const BasicCard = ({item, type}) => {
                         ">
                     <div className="
                                 flex flex-row justify-center items-center
-                                w-1/3
+                                w-1/4
                             ">
                         <div className="
                                     text-xs font-bold text-[#fe7700]
@@ -80,16 +67,18 @@ const BasicCard = ({item, type}) => {
                     </div>
                     <div className="
                                 flex flex-row justify-center items-center
-                                w-1/3
+                                w-2/4
                             ">
                         <div className="
                                     text-xs font-bold text-[#fe7700]
                                     flex flex-row justify-center items-center
                                 ">
-                            <img src={eth} className="
-                                        h-4 w-4
-                                        " alt=""/>
-                            {item?.Volume24h}
+                            Rank: &nbsp;
+                            <span className="
+                                        text-[#fe7700] font-bold text-xs
+                                    ">
+                                        {item?.id}/{item?.totalSupply}
+                            </span>
                         </div>
                     </div>
                 </div>
