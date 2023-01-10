@@ -29,7 +29,7 @@ const CollectionInfo = ({data}) => {
                     {data?.name}
                 </p>
                 <p className="
-                    text-[#fe7700] text-md my-2
+                    text-[#808080] text-md my-2
                 ">
                     {
                         data?.description.length > 300 ? data?.description.slice(0, 300) + "..." : data?.description
