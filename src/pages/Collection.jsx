@@ -22,7 +22,7 @@ const Collection = () => {
             <div className="
                 w-11/12 my-3
             ">
-                <CardsList type={"details"} items={items}/>
+                <CardsList type={"detail"} items={items}/>
             </div>
         </div>
     );
