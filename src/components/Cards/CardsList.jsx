@@ -2,6 +2,7 @@ import React from 'react';
 import {Grid} from "@mui/material";
 import CollectionCard from "./CollectionCard";
 import HomeCollectionCard from "./HomeCollectionCard";
+import BasicCard from "./BasicCard";
 
 const CardsList = ({items, type}) => {
     return (
@@ -15,7 +16,7 @@ const CardsList = ({items, type}) => {
                             type === 'collection' ? (
                                 <CollectionCard item={item} type={type}/>
                             ) : (
-                                <HomeCollectionCard item={item} type={type}/>
+                                <BasicCard item={item} type={type}/>
                             )
                         }
                     </Grid>
