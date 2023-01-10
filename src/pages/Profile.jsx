@@ -23,7 +23,7 @@ const Profile = () => {
             </div>
             <div className=" w-full h-1/2 bg-[#e6e7e9]">
                 <DetailActivities/>
-                <Suggestions/>
+                <Suggestions label={"NFTs Owned"}/>
             </div>
             </div>
         </div>

@@ -29,7 +29,7 @@ const InfoPanel = () => {
                     text-xl font-bold text-[#808080] mt-1 px-2
                     flex flex-row justify-center items-center
                 ">
-                    NFT Created: 9
+                    NFT Owned: 33
                 </Grid>
                 <Grid item className="
                     text-xl font-bold text-[#808080] mt-1 px-2

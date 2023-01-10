@@ -27,7 +27,7 @@ const Details = () => {
                 bg-[#e6e7e9]
             ">
                 <DetailActivities/>
-                <Suggestions/>
+                <Suggestions label={"More from this collection"}/>
             </div>
         </div>
 

@@ -4,7 +4,7 @@ import HomeCollectionCard from "../Cards/HomeCollectionCard";
 import BasicCard from "../Cards/BasicCard";
 import CardsList from "../Cards/CardsList";
 
-const Suggestions = () => {
+const Suggestions = ({label}) => {
     const items = useSelector(state => state.item.data).slice(0, 4);
     return (
         <div className="
@@ -19,7 +19,7 @@ const Suggestions = () => {
                         text-xl font-bold text-[#808080] my-2
                         flex flex-row justify-center items-center
                 ">
-                    More from this collection
+                    {label}
                 </p>
                 <div className="
                     flex flex-row justify-around items-center w-full
