@@ -92,7 +92,7 @@ const MainCarousel = () => {
                     {
                         data.map((item, index) => {
                             return (
-                                <div className={`
+                                <div key={index} className={`
                                     flex flex-row justify-center items-center h-5 w-5
                                     rounded-full bg-[#fff] mx-1
                                     cursor-pointer hover:bg-[#fe7700]

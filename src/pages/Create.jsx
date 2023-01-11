@@ -1,6 +1,23 @@
 import React from 'react';
+import {useContract} from "@thirdweb-dev/react";
 
 const Create = () => {
+    const { contract, isLoading, error } = useContract("0xD33615AC2cCbF54218339D79569620Db784feA17", "nft-collection")
+
+    const handleSubmit = async (e) => {
+        const walletAddress = "0xFF879627bE071319123e49D67cA5b982cE000000";
+
+        const metadata = {
+            name: e.target[0].value,
+            description: e.target[1].value,
+            image: e.target[2].value,
+        };
+
+        const tx = await contract.mintBatchTo(walletAddress, metadata);
+
+        console.log(tx);
+    }
+
     return (
         <div className="
                         flex flex-col justify-center bg-[#fff] items-center w-11/12 mx-auto mt-3
@@ -18,7 +35,7 @@ const Create = () => {
             <form action="" className="
                 flex flex-col items-center justify-center
                 w-full h-full p-4 space-y-4 text-center
-            ">
+            " onSubmit={handleSubmit}>
                 <div className="
                     flex flex-col items-center justify-center
                     w-full h-full p-4 space-y-4 text-center
@@ -41,28 +58,28 @@ const Create = () => {
                         w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg resize-none
                     " placeholder="Provide a detailed description of your item."></textarea>
                 </div>
-                <div className="
-                    flex flex-col items-center justify-center
-                    w-full h-full p-4 space-y-4 text-center
-                ">
-                    <label htmlFor="collection" className="
-                        text-xl font-semibold text-gray-700
-                    ">Collection</label>
-                    <input type="text" name="collection" id="collection" className="
-                        w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg
-                    " placeholder="Collection where your item will appear"/>
-                </div>
-                <div className="
-                    flex flex-col items-center justify-center
-                    w-full h-full p-4 space-y-4 text-center
-                ">
-                    <label htmlFor="price" className="
-                        text-xl font-semibold text-gray-700
-                    ">Price</label>
-                    <input type="number" name="price" id="price" className="
-                        w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg
-                    " placeholder="Item price in ethereum"/>
-                </div>
+                {/*<div className="*/}
+                {/*    flex flex-col items-center justify-center*/}
+                {/*    w-full h-full p-4 space-y-4 text-center*/}
+                {/*">*/}
+                {/*    <label htmlFor="collection" className="*/}
+                {/*        text-xl font-semibold text-gray-700*/}
+                {/*    ">Collection</label>*/}
+                {/*    <input type="text" name="collection" id="collection" className="*/}
+                {/*        w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg*/}
+                {/*    " placeholder="Collection where your item will appear"/>*/}
+                {/*</div>*/}
+                {/*<div className="*/}
+                {/*    flex flex-col items-center justify-center*/}
+                {/*    w-full h-full p-4 space-y-4 text-center*/}
+                {/*">*/}
+                {/*    <label htmlFor="price" className="*/}
+                {/*        text-xl font-semibold text-gray-700*/}
+                {/*    ">Price</label>*/}
+                {/*    <input type="number" name="price" id="price" className="*/}
+                {/*        w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg*/}
+                {/*    " placeholder="Item price in ethereum"/>*/}
+                {/*</div>*/}
                 <div className="
                     flex flex-col items-center justify-center
                     w-full h-full p-4 space-y-4 text-center
@@ -74,21 +91,21 @@ const Create = () => {
                         w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg
                     " placeholder="Item image URL"/>
                 </div>
-                <div className="
-                    flex flex-col items-center justify-center
-                    w-full h-full p-4 space-y-4 text-center
-                ">
-                    <label htmlFor="category" className="
-                        text-xl font-semibold text-gray-700
-                    ">Category</label>
-                    <select name="category" id="category" className="
-                        w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg
-                    ">
-                        <option value="1">Category 1</option>
-                        <option value="2">Category 2</option>
-                        <option value="3">Category 3</option>
-                    </select>
-                </div>
+                {/*<div className="*/}
+                {/*    flex flex-col items-center justify-center*/}
+                {/*    w-full h-full p-4 space-y-4 text-center*/}
+                {/*">*/}
+                {/*    <label htmlFor="category" className="*/}
+                {/*        text-xl font-semibold text-gray-700*/}
+                {/*    ">Category</label>*/}
+                {/*    <select name="category" id="category" className="*/}
+                {/*        w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg*/}
+                {/*    ">*/}
+                {/*        <option value="1">Category 1</option>*/}
+                {/*        <option value="2">Category 2</option>*/}
+                {/*        <option value="3">Category 3</option>*/}
+                {/*    </select>*/}
+                {/*</div>*/}
                 <div className="
                     flex flex-col items-center justify-center
                     w-full h-full p-4 space-y-4 text-center
@@ -109,7 +126,6 @@ const Create = () => {
                     hover:bg-[#b15300] shadow-md
                     transition duration-300 ease-in-out
                 ">Create</button>
-
             </form>
             </div>
         </div>
