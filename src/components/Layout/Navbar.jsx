@@ -31,15 +31,15 @@ const Navbar = () => {
                 " placeholder={"Search"} />
             </div>
             <ul className="
-                    flex flex-row space-x-9 text-base font-medium text-[#fe7700] cursor-pointer h-10
+                    flex flex-row space-x-5 text-base font-medium text-[#fe7700] cursor-pointer h-10
             ">
                 {
                     navlinks.map((link, index) => (
                         <li key={index} className={`
                             inline-block  flex flex-row justify-center items-center
-                            text-[#fe7700] font-bold text-base p-1 rounded-xl
+                            text-[#fe7700] font-bold text-base p-3 rounded-xl
                             hover:text-[#b15300] transition duration-300 ease-in-out
-                            cursor-pointer ${curPath === link.link ? "bg-[#fe7700] hover:text-[#ffffff] p-1 text-[#fff]" : ""}
+                            cursor-pointer ${curPath === link.link ? "bg-[#fe7700] hover:text-[#ffffff] text-[#fff]" : ""}
                         `}>
                             <Link to={link.link} onClick={() => setCurPath(link.link)}>
                                 {link.name}
