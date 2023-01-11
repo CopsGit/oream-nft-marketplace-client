@@ -12,9 +12,9 @@ export const navlinks = [
     link: '/explore',
   },
   {
-    name: 'Create',
-    imgUrl: logout,
-    link: '/create',
+    name: 'Drop',
+    // imgUrl: logout,
+    link: '/drop',
   },
   {
     name: 'Profile',

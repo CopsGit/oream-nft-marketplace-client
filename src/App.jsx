@@ -4,6 +4,7 @@ import {Create, Details, Explore, Home, Profile, Search} from './pages';
 import Navbar from "./components/Layout/Navbar";
 import Bottom from "./components/Layout/Bottom";
 import Collection from "./pages/Collection";
+import Drop from "./pages/Drop";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
                     <Route path="/explore" element={<Explore />} />
                     <Route path="/search" element={<Search />} />
                     <Route path="/create" element={<Create />} />
+                    <Route path="/drop" element={<Drop />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/collection/:id" element={<Collection />} />
                     <Route path="/detail/:id" element={<Details />} />
