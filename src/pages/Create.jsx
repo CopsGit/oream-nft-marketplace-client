@@ -1,20 +1,25 @@
 import React from 'react';
 import {useContract} from "@thirdweb-dev/react";
+import {useStateContext} from "../context";
 
 const Create = () => {
+    const { address } = useStateContext();
     const { contract, isLoading, error } = useContract("0xD33615AC2cCbF54218339D79569620Db784feA17", "nft-collection")
 
     const handleSubmit = async (e) => {
-        const walletAddress = "0xFF879627bE071319123e49D67cA5b982cE000000";
+        e.preventDefault();
+
+        const walletAddress = address;
 
         const metadata = {
             name: e.target[0].value,
             description: e.target[1].value,
-            image: e.target[2].value,
+            image: e.target[2].files[0],
         };
 
-        const tx = await contract.mintBatchTo(walletAddress, metadata);
+        console.log(metadata);
 
+        const tx = await contract.mintTo(walletAddress, metadata);
         console.log(tx);
     }
 
@@ -86,8 +91,8 @@ const Create = () => {
                 ">
                     <label htmlFor="image" className="
                         text-xl font-semibold text-gray-700
-                    ">Image URL</label>
-                    <input type="text" name="image" id="image" className="
+                    ">Image</label>
+                    <input type="file" name="image" id="image" className="
                         w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg
                     " placeholder="Item image URL"/>
                 </div>
@@ -106,21 +111,21 @@ const Create = () => {
                 {/*        <option value="3">Category 3</option>*/}
                 {/*    </select>*/}
                 {/*</div>*/}
-                <div className="
-                    flex flex-col items-center justify-center
-                    w-full h-full p-4 space-y-4 text-center
-                ">
-                    <label htmlFor="blockchain" className="
-                        text-xl font-semibold text-gray-700
-                    ">Blockchain</label>
-                    <select name="blockchain" id="blockchain" className="
-                        w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg
-                    ">
-                        <option value="1">Blockchain 1</option>
-                        <option value="2">Blockchain 2</option>
-                        <option value="3">Blockchain 3</option>
-                    </select>
-                </div>
+                {/*<div className="*/}
+                {/*    flex flex-col items-center justify-center*/}
+                {/*    w-full h-full p-4 space-y-4 text-center*/}
+                {/*">*/}
+                {/*    <label htmlFor="blockchain" className="*/}
+                {/*        text-xl font-semibold text-gray-700*/}
+                {/*    ">Blockchain</label>*/}
+                {/*    <select name="blockchain" id="blockchain" className="*/}
+                {/*        w-1/2 px-4 py-2 text-gray-700 bg-white rounded-lg*/}
+                {/*    ">*/}
+                {/*        <option value="1">Blockchain 1</option>*/}
+                {/*        <option value="2">Blockchain 2</option>*/}
+                {/*        <option value="3">Blockchain 3</option>*/}
+                {/*    </select>*/}
+                {/*</div>*/}
                 <button className="
                     w-1/2 px-4 py-2 text-white bg-[#fe7700] rounded-xl
                     hover:bg-[#b15300] shadow-md

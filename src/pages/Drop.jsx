@@ -3,6 +3,7 @@ import CardsList from "../components/Cards/CardsList";
 import DropCard from "../components/Cards/DropCard";
 import {useSelector} from "react-redux";
 import {useContract} from "@thirdweb-dev/react";
+import {Link} from "react-router-dom";
 
 const Drop = () => {
     const contractAddress = [
@@ -26,6 +27,19 @@ const Drop = () => {
                     <DropCard key={index} contractAddress={address} />
                 ))
             }
+            <Link to={"/create"} className="
+                w-full flex flex-row justify-center items-center
+            ">
+                <button className="
+                        text-[#fff] font-bold text-2xl
+                        my-5 bg-[#fe7700] rounded-2xl
+                        transition duration-500 ease-in-out
+                        transform hover:-translate-y-1 hover:scale-110
+                        w-11/12 h-12
+            ">
+                    Mint Your Own NFTs
+                </button>
+            </Link>
         </div>
     );
 };
