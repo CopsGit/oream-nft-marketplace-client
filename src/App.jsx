@@ -5,6 +5,7 @@ import Navbar from "./components/Layout/Navbar";
 import Bottom from "./components/Layout/Bottom";
 import Collection from "./pages/Collection";
 import Drop from "./pages/Drop";
+import Success from "./pages/Success";
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/collection/:id" element={<Collection />} />
                     <Route path="/detail/:id" element={<Details />} />
+                    <Route path="/success/:id" element={<Success />} />
                 </Routes>
 
                 <Bottom />

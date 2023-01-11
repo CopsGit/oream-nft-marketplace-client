@@ -20,7 +20,10 @@ const Create = () => {
         console.log(metadata);
 
         const tx = await contract.mintTo(walletAddress, metadata);
-        console.log(tx);
+        const receipt = tx.receipt; // the transaction receipt
+        const tokenId = tx.id; // the id of the NFT minted
+        const nft = await tx.data(); // (optional) fetch details of minted NFT
+        console.log(nft);
     }
 
     return (
