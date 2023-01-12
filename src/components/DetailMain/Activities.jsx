@@ -109,7 +109,7 @@ const DetailActivities = () => {
                         {
                             activities?.map((activity, index) => {
                                     return (
-                                        <div className="
+                                        <div key={index} className="
                                     flex flex-row justify-between items-center
                                     w-full mt-3
                                 ">

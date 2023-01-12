@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import DetailActivities from "../components/DetailMain/Activities";
 import ProfileLeft from "../components/ProfileMain/Left";
 import ProfileRight from "../components/ProfileMain/Right";
 import Suggestions from "../components/DetailMain/Suggestions";
+import {useStateContext} from "../context";
+import CardsList from "../components/Cards/CardsList";
 
 const Profile = () => {
+    const {alchemy,address} = useStateContext();
+    const [nft, setNft] = useState(null);
+
+    useEffect(() => {
+        address && alchemy.nft.getNftsForOwner(address).then((nfts) => {
+            setNft(nfts);
+        });
+    } , [address]);
+
+    console.log(nft?.ownedNfts);
+
     return (
         <div className="
                         flex flex-col justify-center bg-[#e6e7e9] items-center w-11/12 mx-auto mt-3
@@ -23,7 +36,7 @@ const Profile = () => {
             </div>
             <div className=" w-full h-1/2 bg-[#e6e7e9]">
                 <DetailActivities/>
-                <Suggestions label={"NFTs Owned"}/>
+                <CardsList items={nft?.ownedNfts} type="nfts" title={"NFTs Owned"}/>
             </div>
             </div>
         </div>

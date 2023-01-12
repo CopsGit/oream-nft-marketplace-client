@@ -4,9 +4,20 @@ import CollectionCard from "./CollectionCard";
 import HomeCollectionCard from "./HomeCollectionCard";
 import BasicCard from "./BasicCard";
 
-const CardsList = ({items, type}) => {
+const CardsList = ({items, type, title}) => {
     return (
-        <Grid container spacing={2} className="w-full h-full bg-[#e6e7e9]
+        <div className="
+                    flex flex-col justify-between items-center
+                    w-full bg-white rounded-2xl shadow-2xl
+                    mt-5 p-5 h-full
+                ">
+            <p className="
+                        text-[#fe7700] font-bold text-2xl
+                        mb-5
+            ">
+                {title}
+            </p>
+        <Grid container spacing={2} className="w-full h-full
             flex flex-row justify-start items-start
         ">
             {
@@ -23,6 +34,7 @@ const CardsList = ({items, type}) => {
                 ))
             }
         </Grid>
+        </div>
     );
 };
 

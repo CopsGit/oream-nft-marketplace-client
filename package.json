@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "@thirdweb-dev/react": "^3",
     "@thirdweb-dev/sdk": "^3",
+    "alchemy-sdk": "^2.2.5",
     "autoprefixer": "^10.4.13",
     "axios": "^1.2.2",
     "ethers": "^5.7.2",

@@ -1,14 +1,22 @@
 import React, {createContext, useContext} from 'react';
-
+import { Network, Alchemy } from "alchemy-sdk";
 import {useAddress, useContract, useContractWrite, useDisconnect, useMetamask} from '@thirdweb-dev/react';
 import {ethers} from 'ethers';
 
 const StateContext = createContext();
 const contractAddress = import.meta.env.VITE_APP_CONTRACT_ADDRESS;
+const alchemyApiKey = import.meta.env.VITE_APP_ALCHEMY_API_KEY;
 
 export const StateContextProvider = ({children}) => {
     const {contract} = useContract(contractAddress, "marketplace")
     // const {mutateAsync: createCampaign} = useContractWrite(contract, 'createCampaign');
+
+    const alchemySettings = {
+        apiKey: alchemyApiKey, // Replace with your Alchemy API Key.
+        network: Network.ETH_GOERLI, // Replace with your network.
+    };
+
+    const alchemy = new Alchemy(alchemySettings);
 
     const address = useAddress();
     const connect = useMetamask();
@@ -100,7 +108,8 @@ export const StateContextProvider = ({children}) => {
                 makeOffer,
                 makeListing,
                 getAllOffersOfOneListing,
-                getAllListings
+                getAllListings,
+                alchemy
             }}
         >
             {children}

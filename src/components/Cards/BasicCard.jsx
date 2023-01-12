@@ -2,6 +2,7 @@ import React from 'react';
 import VerifiedIcon from "@mui/icons-material/Verified";
 import {eth} from "../../assets";
 import {useNavigate} from "react-router-dom";
+import {MediaRenderer} from "@thirdweb-dev/react";
 
 const BasicCard = ({item, type}) => {
     const navigate = useNavigate()
@@ -13,7 +14,7 @@ const BasicCard = ({item, type}) => {
     }
     return (
         <div className="
-                            flex flex-col w-full aspect-square
+                            flex flex-col w-full
 
                         "
              onClick={handleClick}
@@ -24,10 +25,15 @@ const BasicCard = ({item, type}) => {
                 transition duration-300 ease-in-out
                 hover:scale-105 bg-[#fff]
             ">
-                <img src={item?.image} alt="" className={`
-                    h-3/5 w-full object-cover
-                    transition duration-300 ease-in-out
-                    `}/>
+                <MediaRenderer
+                    src={
+                        item?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+                    }
+                    alt="itemMedia"
+                    className="h-full w-full object-cover
+                        aspect-square
+                    "
+                />
                 <div className={`
                     flex flex-row justify-between items-center
                     relative bottom-1/6 h-1/6 w-full px-3
@@ -36,15 +42,17 @@ const BasicCard = ({item, type}) => {
                         flex flex-row justify-center items-center
                         h-12 text-[#fe7700] text-md font-bold
                     ">
-                        {item?.name} &nbsp;
-                        #000{item?.id}
+                        {item?.title} &nbsp;
+                        #{
+                        item?.tokenId < 1000 ? item?.tokenId < 100 ? item?.tokenId < 10 ? "000" + item?.tokenId : "00" + item?.tokenId : "0" + item?.tokenId : item?.tokenId
+                    }
                     </div>
                 </div>
                 <div className="
                             flex flex-row justify-around items-center
-                            h-1/6 w-11/12 bg-white mx-auto
+                            h-1/5 w-11/12 bg-white mx-auto
                             border-2 border-[#fe7700] rounded-2xl
-                            my-2 cursor-pointer
+                            my-3 cursor-pointer
                         ">
                     <div className="
                                 flex flex-row justify-center items-center
@@ -57,7 +65,7 @@ const BasicCard = ({item, type}) => {
                             <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                            {item?.floorPrice}
+                            {item?.floorPrice ? item?.floorPrice : "Unlisted"}
                         </div>
                     </div>
                     <div className="
@@ -78,7 +86,9 @@ const BasicCard = ({item, type}) => {
                             <span className="
                                         text-[#fe7700] font-bold text-xs
                                     ">
-                                        {item?.id}/{item?.totalSupply}
+                                        {
+                                            item?.tokenId < 10000 ? `${item?.tokenId}/${item?.contract?.totalSupply}` : item?.tokenId
+                                        }
                             </span>
                         </div>
                     </div>
