@@ -1,6 +1,7 @@
 import React from 'react';
 import {eth} from "../../assets";
 import {Link} from "react-router-dom";
+import {MediaRenderer} from "@thirdweb-dev/react";
 
 const DetailMainLeft = ({curItem}) => {
     return (
@@ -12,7 +13,13 @@ rounded-l-3xl
                     flex flex-row justify-between
                     w-full lg:aspect-square xl:h-full 2xl:h-full
             ">
-                <img src={curItem?.image} alt="" className="aspect-square rounded-2xl shadow-lg"/>
+                <MediaRenderer
+                    src={
+                        curItem?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+                    }
+                    alt="itemMedia"
+                    className="aspect-square rounded-2xl shadow-lg"
+                />
             </div>
             <div className="
                     flex flex-col justify-start items-start
@@ -24,13 +31,13 @@ rounded-l-3xl
                         flex flex-row justify-center items-center
                 ">
                     Collection:
-                    <Link to={`/collection/${curItem?.name}`} className="
+                    <Link to={`/collection/${curItem?.contract.address}`} className="
                         text-lg font-bold text-[#fe7700] ml-1
                         flex flex-row justify-center items-center
                         hover:text-[#b15300]
                         transition duration-300 ease-in-out
                     ">
-                        {curItem?.name}
+                        {curItem?.title}
                     </Link>
                 </p>
                 <div className="
@@ -41,13 +48,13 @@ rounded-l-3xl
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        Total Supply: {curItem?.totalSupply}
+                        Total Supply: {curItem?.contract.totalSupply}
                     </p>
                     <p className="
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        Total Holders: {curItem?.totalHolders}
+                        Total Holders: {curItem?.contract.totalSupply}
                     </p>
                 </div>
                 <div className="
@@ -58,7 +65,7 @@ rounded-l-3xl
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        Token Standard: ERC-721
+                        Token Standard: {curItem?.contract.tokenType}
                     </p>
                     <p className="
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
@@ -75,13 +82,15 @@ rounded-l-3xl
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        Rank: {curItem?.rank}
+                        Rank: {curItem?.tokenId}
                     </p>
                     <p className="
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        Royalty: {curItem?.royalty}%
+                        Royalty:&nbsp;
+                        {curItem?.royalty}
+                        10%
                     </p>
                 </div>
                 <div className="
@@ -92,17 +101,19 @@ rounded-l-3xl
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        24H Volume:
+                        24H Volume:&nbsp;
                         <img src={eth} className="h-4 w-4" alt=""/>
-                        {curItem?.Volume24h}
+                        {/*{curItem?.Volume24h}*/}
+                        100
                     </p>
                     <p className="
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        Total Volume:
+                        Total Volume:&nbsp;
                         <img src={eth} className="h-4 w-4" alt=""/>
-                        {curItem?.totalVolume}
+                        {/*{curItem?.totalVolume}*/}
+                        200
                     </p>
                 </div>
             </div>
