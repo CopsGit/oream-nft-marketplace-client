@@ -21,8 +21,8 @@ const CardsList = ({items, type, title}) => {
             flex flex-row justify-start items-start
         ">
             {
-                items?.map((item) => (
-                    <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} key={item.id}>
+                items?.map((item, index) => (
+                    <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} key={index}>
                         {
                             type === 'collection' ? (
                                 <CollectionCard item={item} type={type}/>

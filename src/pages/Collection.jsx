@@ -4,6 +4,7 @@ import {eth} from "../assets";
 import CollectionInfo from "../components/Cards/CollectionInfo";
 import CardsList from "../components/Cards/CardsList";
 import {useStateContext} from "../context";
+import {MediaRenderer} from "@thirdweb-dev/react";
 
 const Collection = () => {
     // const data = useSelector(state => state.item.data[0]);
@@ -29,14 +30,20 @@ const Collection = () => {
             rounded-3xl shadow-2xl shadow-[#ed3c00] overflow-y-auto
 
         ">
-            <img className="
-                w-full h-60 object-cover
-            " src={info?.image} alt="banner"/>
+
+            <MediaRenderer
+                src={
+                    info?.nfts[0]?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+                }
+                alt="itemMedia"
+                className="w-full h-60 object-cover bg-white shadow-2xl shadow-[#ed3c00]
+                    "
+            />
             <div className="
                 flex flex-row justify-between items-center
                 relative bottom-1/2
             ">
-                <CollectionInfo data={info && info[0]}/>
+                <CollectionInfo data={info?.nfts[0]}/>
             </div>
 
             <div className="
