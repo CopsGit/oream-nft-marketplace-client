@@ -32,7 +32,7 @@ const CollectionInfo = ({data}) => {
                     text-[#808080] text-md my-2
                 ">
                     {
-                        data?.description.length > 300 ? data?.description.slice(0, 300) + "..." : data?.description
+                        data?.description?.length > 300 ? data?.description?.slice(0, 300) + "..." : data?.description
                     }
                 </p>
                 <div className="

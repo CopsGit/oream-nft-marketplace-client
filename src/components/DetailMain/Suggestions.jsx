@@ -4,7 +4,7 @@ import HomeCollectionCard from "../Cards/HomeCollectionCard";
 import BasicCard from "../Cards/BasicCard";
 import CardsList from "../Cards/CardsList";
 
-const Suggestions = ({label}) => {
+const Suggestions = ({label, data}) => {
     const items = useSelector(state => state.item.data).slice(0, 4);
     return (
         <div className="
@@ -23,7 +23,6 @@ const Suggestions = ({label}) => {
                 </p>
                 <div className="
                     flex flex-row justify-around items-center w-full
-                    h-64
                         ">
                     <CardsList type={"detail"} items={items}/>
                 </div>

@@ -1,13 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import {eth} from "../assets";
 import CollectionInfo from "../components/Cards/CollectionInfo";
 import CardsList from "../components/Cards/CardsList";
+import {useStateContext} from "../context";
 
 const Collection = () => {
-    const data = useSelector(state => state.item.data[0]);
-    const data1 = useSelector(state => state.item.data);
-    const items = [...data1, ...data1, ...data1, ...data1, ...data1]
+    // const data = useSelector(state => state.item.data[0]);
+    // const data1 = useSelector(state => state.item.data);
+    // const items = [...data1, ...data1, ...data1, ...data1, ...data1]
+
+    const {alchemy} = useStateContext();
+    const [info, setInfo] = useState(null);
+    const contractAddress = window.location.pathname.split("/")[2];
+    useEffect(() => {
+        alchemy && alchemy.nft
+            .getNftsForContract(contractAddress)
+            .then((data) => {
+            setInfo(data);
+        })
+    } , [alchemy]);
+
+    console.log(info)
 
     return (
         <div className="
@@ -17,18 +31,18 @@ const Collection = () => {
         ">
             <img className="
                 w-full h-60 object-cover
-            " src={data.image} alt="banner"/>
+            " src={info?.image} alt="banner"/>
             <div className="
                 flex flex-row justify-between items-center
                 relative bottom-1/2
             ">
-                <CollectionInfo data={data}/>
+                <CollectionInfo data={info && info[0]}/>
             </div>
 
             <div className="
                 w-11/12 my-3
             ">
-                <CardsList type={"detail"} items={items}/>
+                <CardsList type={"detail"} items={info?.nfts}/>
             </div>
         </div>
     );

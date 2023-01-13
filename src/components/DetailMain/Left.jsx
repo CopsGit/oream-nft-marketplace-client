@@ -18,7 +18,7 @@ rounded-l-3xl
                         curItem?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
                     }
                     alt="itemMedia"
-                    className="aspect-square rounded-2xl shadow-lg"
+                    className="w-full aspect-square rounded-2xl shadow-lg"
                 />
             </div>
             <div className="
@@ -37,7 +37,7 @@ rounded-l-3xl
                         hover:text-[#b15300]
                         transition duration-300 ease-in-out
                     ">
-                        {curItem?.title}
+                        {curItem?.contract.name}
                     </Link>
                 </p>
                 <div className="

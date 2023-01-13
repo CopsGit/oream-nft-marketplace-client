@@ -8,7 +8,7 @@ const CardsList = ({items, type, title}) => {
     return (
         <div className="
                     flex flex-col justify-between items-center
-                    w-full bg-white rounded-2xl shadow-2xl
+                    w-full rounded-2xl
                     mt-5 p-5 h-full
                 ">
             <p className="

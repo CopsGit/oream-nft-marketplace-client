@@ -5,7 +5,7 @@ import PricePanel from "./PricePanel";
 const DetailRightTop = ({curItem}) => {
     return (
         <div className="
-                flex flex-col justify-center items-center
+                flex flex-col justify-center items-start
                 w-full h-1/2
             ">
             <p className="text-3xl font-bold text-[#fe7700]
@@ -29,6 +29,7 @@ const DetailRightTop = ({curItem}) => {
                     }</span>
             </p>
             <p className="text-xs font-bold text-[#808080]">
+                Description:&nbsp;
                 {curItem?.description.length >
                 300 ? curItem?.description.substring(0, 300) + "..." : curItem?.description}
             </p>
