@@ -19,7 +19,7 @@ const PricePanel = ({curItem}) => {
                     <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                    <span className="text-lg font-bold text-[#fe7700]">{curItem?.floorPrice} ETH</span>
+                    <span className="text-lg font-bold text-[#fe7700]">{curItem?.floorPrice || "N/A"} ETH</span>
                 </p>
                 <p className="
                     text-xs font-bold text-[#808080] mt-1
@@ -29,7 +29,7 @@ const PricePanel = ({curItem}) => {
                     <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                    <span className="text-lg font-bold text-[#fe7700]">{curItem?.floorPrice} ETH</span>
+                    <span className="text-lg font-bold text-[#fe7700]">{curItem?.floorPrice || "N/A"} ETH</span>
                 </p>
             </div>
             <div className="
