@@ -36,7 +36,7 @@ const Profile = () => {
             </div>
             <div className=" w-full h-1/2 bg-[#e6e7e9]">
                 <DetailActivities/>
-                <CardsList items={nft?.ownedNfts} type="nfts" title={"NFTs Owned"}/>
+                <CardsList items={nft?.ownedNfts} type="detail" title={"NFTs Owned"}/>
             </div>
             </div>
         </div>

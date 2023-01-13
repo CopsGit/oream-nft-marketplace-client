@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import Left from "../components/DetailMain/Left";
 import Right from "../components/DetailMain/Right";
 import Suggestions from "../components/DetailMain/Suggestions";
 import DetailActivities from "../components/DetailMain/Activities";
+import {useStateContext} from "../context";
 
 const Details = () => {
-    const curItemId = window.location.pathname.split("/")[2];
-    const curItem = useSelector(state => state.item.data.find(item => item.id === parseInt(curItemId)));
-    console.log(curItem);
+    const {alchemy} = useStateContext();
+    const rawContractAddress = window.location.pathname.split("/")[2];
+    const contractAddress = rawContractAddress.split("&")[0];
+    const tokenId = rawContractAddress.split("&")[1];
+
+    const [data, setData] = useState(null);
+    useEffect(() => {
+        alchemy && alchemy.nft.getNftMetadata(
+            contractAddress,
+            tokenId
+        ).then((data) => {
+            setData(data);
+        })
+    } , [alchemy]);
+
+    console.log(data)
 
     return (
         <div className="
@@ -19,8 +33,8 @@ const Details = () => {
             <div className="w-full h-full bg-[#e6e7e9]
             flex flex-row justify-center items-start
         ">
-                <Left curItem={curItem}/>
-                <Right curItem={curItem}/>
+                <Left curItem={data}/>
+                <Right curItem={data}/>
             </div>
             <div className="
                 flex flex-col justify-start items-center w-full h-1/2

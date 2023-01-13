@@ -8,7 +8,7 @@ const BasicCard = ({item, type}) => {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        navigate(`/${type}/${item.id}`)
+        navigate(`/${type}/${item.contract.address}&${item.tokenId}`)
         scroll(0, 0)
         window.location.reload()
     }
