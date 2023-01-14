@@ -2,15 +2,18 @@ import React, {useState} from 'react';
 import {eth} from "../../assets";
 import {useNavigate} from "react-router-dom";
 import VerifiedIcon from '@mui/icons-material/Verified';
+import {MediaRenderer} from "@thirdweb-dev/react";
 
 const CollectionCard = ({item, type}) => {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        navigate(`/${type}/${item.id}`)
+        navigate(`/${type}/${item?.nfts[0]?.contract.address}`)
         scroll(0, 0)
         window.location.reload()
     }
+
+    console.log(item)
     return (
         <div className="
                             flex flex-col w-full aspect-square
@@ -24,10 +27,21 @@ const CollectionCard = ({item, type}) => {
                 transition duration-300 ease-in-out
                 hover:scale-105 bg-[#fff]
             ">
-                <img src={item?.image} alt="" className={`
-                    h-3/5 w-full object-cover
+                <div className="
+                    flex flex-row justify-between items-center
+                    relative overflow-hidden w-full h-3/5
+                ">
+                    <MediaRenderer
+                        src={
+                            item?.nfts[0]?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+                        }
+                        alt="itemMedia"
+                        className="
+                    w-full object-cover aspect-square
                     transition duration-300 ease-in-out
-                    `}/>
+                    "
+                    />
+                </div>
                 <div className={`
                     flex flex-row justify-between items-center
                     relative bottom-1/6 h-1/6 w-full px-3
@@ -37,19 +51,25 @@ const CollectionCard = ({item, type}) => {
                         h-12 text-[#fff] w-1/4 aspect-square
                         text-sm font-bold relative bottom-1/4
                     ">
-                        <img className="
-                            w-full aspect-square object-cover
-                            rounded-xl shadow-lg cursor-pointer
+                        <MediaRenderer
+                            src={
+                                item?.nfts[0]?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+                            }
+                            alt="itemMedia"
+                            className="
+                    w-full aspect-square object-cover
+                            rounded-xl cursor-pointer
                             transition duration-300 ease-in-out
-                            hover:shadow-none hover:scale-105
-                            border-4 border-[#fff]
-                        " src={item?.image} alt=""/>
+                            hover:scale-105 shadow-md shadow-[#fe7700]
+                            border-4 border-[#fff] bg-[#fff]
+                    "
+                        />
                     </div>
                     <div className="
                         flex flex-row justify-center items-center
                         h-12 text-[#fe7700] text-md font-bold
                     ">
-                        {item?.name} &nbsp;
+                        {item?.nfts[0]?.contract?.name} &nbsp;
                         <VerifiedIcon className="text-[#fe7700]"/>
                     </div>
                 </div>
@@ -70,7 +90,7 @@ const CollectionCard = ({item, type}) => {
                             <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                            {item?.floorPrice}
+                            {item?.floorPrice || "N/A"}
                         </div>
                     </div>
                     <div className="
@@ -90,7 +110,7 @@ const CollectionCard = ({item, type}) => {
                             <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                            {item?.Volume24h}
+                            {item?.Volume24h || "N/A"}
                         </div>
                     </div>
                 </div>
