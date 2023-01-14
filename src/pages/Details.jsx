@@ -5,6 +5,7 @@ import Right from "../components/DetailMain/Right";
 import Suggestions from "../components/DetailMain/Suggestions";
 import DetailActivities from "../components/DetailMain/Activities";
 import {useStateContext} from "../context";
+import {Backdrop, CircularProgress} from "@mui/material";
 
 const Details = () => {
     const {alchemy} = useStateContext();
@@ -43,6 +44,12 @@ const Details = () => {
                 <DetailActivities/>
                 <Suggestions label={"More from this collection"} data={data}/>
             </div>
+            <Backdrop
+                sx={{ color: '#fe7700', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={data === null}
+            >
+                <CircularProgress color="inherit" size={60} thickness={3.9}/>
+            </Backdrop>
         </div>
 
     );

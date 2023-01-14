@@ -37,7 +37,7 @@ rounded-l-3xl
                         hover:text-[#b15300]
                         transition duration-300 ease-in-out
                     ">
-                        {curItem?.contract.name}
+                        {curItem?.contract.name || "Unknown"}
                     </Link>
                 </p>
                 <div className="
@@ -48,13 +48,13 @@ rounded-l-3xl
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        Total Supply: {curItem?.contract.totalSupply}
+                        Total Supply: {curItem?.contract.totalSupply || "Unknown"}
                     </p>
                     <p className="
                         text-lg font-bold text-[#808080] w-1/2 md:w-full
                         flex flex-row justify-start items-center
                 ">
-                        Total Holders: {curItem?.contract.totalSupply}
+                        Total Holders: {curItem?.contract.totalSupply || "Unknown"}
                     </p>
                 </div>
                 <div className="

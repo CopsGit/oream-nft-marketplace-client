@@ -25,7 +25,7 @@ const DetailRightTop = ({curItem}) => {
                 <span
                    className="text-xs mx-1 font-bold text-[#fe7700] hover:text-[#b15300] transition-all duration-300 cursor-pointer">
                     {
-                        curItem?.contract.name
+                        curItem?.contract.name || "Unknown"
                     }</span>
             </p>
             <p className="text-xs font-bold text-[#808080]">

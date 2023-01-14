@@ -87,7 +87,7 @@ const BasicCard = ({item, type}) => {
                                         text-[#fe7700] font-bold text-xs
                                     ">
                                         {
-                                            item?.tokenId < 10000 ? `${item?.tokenId}/${item?.contract?.totalSupply}` : item?.tokenId
+                                            item?.tokenId < 10000 ? item?.contract?.totalSupply ? `${item?.tokenId}/${item?.contract?.totalSupply}` : item?.tokenId : item?.tokenId
                                         }
                             </span>
                         </div>

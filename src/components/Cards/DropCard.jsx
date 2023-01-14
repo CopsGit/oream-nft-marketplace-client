@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useContract, Web3Button} from "@thirdweb-dev/react";
 import {ethers} from "ethers";
+import {Backdrop, CircularProgress} from "@mui/material";
 
 const DropCard = ({contractAddress}) => {
     const [count, setCount] = useState({
@@ -8,6 +9,7 @@ const DropCard = ({contractAddress}) => {
         totalMinted: 0,
         yourMinted: 0
     });
+    const [nft, setNft] = useState(null);
     const { contract } = useContract(contractAddress, "nft-drop")
 
     useEffect(() => {
@@ -23,6 +25,7 @@ const DropCard = ({contractAddress}) => {
                 totalMinted: claimedNFTCount.toNumber(),
                 yourMinted: balance.toNumber()
             })
+            setNft(nft);
         }
         fetchData().then();
     }, [contract])
@@ -32,6 +35,8 @@ const DropCard = ({contractAddress}) => {
         window.location.reload();
     }
 
+    console.log(nft)
+
     return (
         <div className="
                     flex flex-row justify-between items-center
@@ -39,8 +44,8 @@ const DropCard = ({contractAddress}) => {
                     mt-5 p-5 h-full
                 ">
             <img className="
-            w-52 h-52 bg-[#e6e7e9] rounded-2xl
-            " src="https://media.discordapp.net/attachments/1003898685656141954/1059249479678701710/193edd9f4842eeb9.png?width=663&height=663" alt=""/>
+            w-52 h-52 bg-[#e6e7e9] rounded-2xl object-cover
+            " src={nft?.metadata?.image} alt=""/>
             <div className="
                 flex flex-col justify-start items-start
                 w-7/12 h-52
@@ -51,7 +56,7 @@ const DropCard = ({contractAddress}) => {
                 ">
                     Collection Name: &nbsp;
                     <span className="text-[#fe7700]">
-                        OreamDrop1
+                        {nft?.metadata?.name}
                     </span>
                 </p>
                 <p className="
@@ -59,7 +64,8 @@ const DropCard = ({contractAddress}) => {
                     flex flex-row justify-center items-center
 
                 ">
-                    Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, autem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, autem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, autem.
+                    Description: &nbsp;
+                    {nft?.metadata?.description}
                 </p>
             </div>
             <div className="
@@ -109,6 +115,12 @@ const DropCard = ({contractAddress}) => {
                         </p>
                     </Web3Button>
                 </div>
+                <Backdrop
+                    sx={{ color: '#fe7700', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                    open={nft === null}
+                >
+                    <CircularProgress color="inherit" size={60} thickness={3.9}/>
+                </Backdrop>
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import {eth} from "../../assets";
+import {MediaRenderer} from "@thirdweb-dev/react";
 
 const CollectionInfo = ({data}) => {
     return (
@@ -11,13 +12,18 @@ const CollectionInfo = ({data}) => {
                     flex flex-col justify-center items-center
                     relative bottom-1/4
                 ">
-                <img className="
-                            w-1/6 aspect-square object-cover
+                <MediaRenderer
+                    src={
+                        data?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+                    }
+                    alt="itemMedia"
+                    className="w-1/6 aspect-square object-cover
                             rounded-xl shadow-lg cursor-pointer
                             transition duration-300 ease-in-out
                             hover:shadow-none hover:scale-105
                             border-4 border-[#fff]
-                        " src={data?.image} alt=""/>
+                    "
+                />
             </div>
             <div className="
                     flex flex-col justify-center items-center
