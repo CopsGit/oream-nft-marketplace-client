@@ -31,23 +31,27 @@ const Collection = () => {
 
         ">
 
-            <MediaRenderer
-                src={
-                    info?.nfts[0]?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
-                }
-                alt="itemMedia"
-                className="w-full h-60 object-cover bg-white shadow-2xl shadow-[#ed3c00]
-                    "
-            />
+            <div className="
+                w-full h-60 object-cover bg-white shadow-2xl shadow-[#ed3c00] overflow-hidden
+                flex flex-row justify-center items-center
+            ">
+                <MediaRenderer
+                    src={
+                        info?.nfts[0]?.rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+                    }
+                    alt="itemMedia"
+                    className="w-full object-cover"
+                />
+            </div>
             <div className="
                 flex flex-row justify-between items-center
                 relative bottom-1/2
             ">
-                <CollectionInfo data={info?.nfts[0]}/>
+                <CollectionInfo data={info?.nfts[0]} items={info?.nfts?.length}/>
             </div>
 
             <div className="
-                w-11/12 my-3
+                w-11/12 mt-3 mb-5
             ">
                 <CardsList type={"detail"} items={info?.nfts}/>
             </div>

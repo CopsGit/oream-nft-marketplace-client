@@ -2,7 +2,7 @@ import React from 'react';
 import {eth} from "../../assets";
 import {MediaRenderer} from "@thirdweb-dev/react";
 
-const CollectionInfo = ({data}) => {
+const CollectionInfo = ({data, items}) => {
     return (
         <div className="
                 flex flex-col justify-center items-center
@@ -21,18 +21,30 @@ const CollectionInfo = ({data}) => {
                             rounded-xl shadow-lg cursor-pointer
                             transition duration-300 ease-in-out
                             hover:shadow-none hover:scale-105
-                            border-4 border-[#fff]
+                            border-4 border-[#fff] bg-white
                     "
                 />
             </div>
             <div className="
                     flex flex-col justify-center items-center
-                    w-11/12
+                    w-10/12
                 ">
                 <p className="
                     text-[#fe7700] text-2xl font-bold my-2
                 ">
-                    {data?.name}
+                    {data?.contract?.name || "Unnamed Collection"}
+                </p>
+                <p className="
+                     text-sm font-bold my-1 text-[#808080]
+                ">
+                    Contract Address: &nbsp;
+                    <a href={`
+                    https://goerli.etherscan.io/address/${data?.contract?.address}
+                `} className="
+                    hover:text-[#b15300] transition duration-300 ease-in-out text-[#fe7700]
+                ">
+                        {data?.contract?.address}
+                    </a>
                 </p>
                 <p className="
                     text-[#808080] text-md my-2
@@ -52,7 +64,7 @@ const CollectionInfo = ({data}) => {
                         <span className="
                             text-[#fe7700] text-md font-bold
                             ">
-                                {data?.totalSupply}
+                                {items || 0}
                             </span>
                     </p>
                     <p className="
@@ -62,7 +74,7 @@ const CollectionInfo = ({data}) => {
                         <span className="
                             text-[#fe7700] text-md font-bold
                             ">
-                                {data?.royalty}%
+                                {data?.royalty || "N/A"}%
                             </span>
                     </p>
                     <p className="
@@ -88,7 +100,7 @@ const CollectionInfo = ({data}) => {
                             flex flex-row justify-center items-center
                             ">
                             <img src={eth} className="h-4 w-4" alt=""/>
-                            {data?.totalVolume}
+                            {data?.totalVolume || "100"}
                         </p>
                         <p className="
                             text-[#808080] text-sm
@@ -104,7 +116,7 @@ const CollectionInfo = ({data}) => {
                             flex flex-row justify-center items-center
                             ">
                             <img src={eth} className="h-4 w-4" alt=""/>
-                            {data?.floorPrice}
+                            {data?.floorPrice || "0.99"}
                         </p>
                         <p className="
                             text-[#808080] text-sm
@@ -118,7 +130,7 @@ const CollectionInfo = ({data}) => {
                         <p className="
                             text-[#fe7700] text-lg font-bold
                             ">
-                            {data?.totalHolders}
+                            {items || "0"}
                         </p>
                         <p className="
                             text-[#808080] text-sm
