@@ -44,7 +44,8 @@ const BasicCard = ({item, type}) => {
                     ">
                         {item?.title} &nbsp;
                         #{
-                        item?.tokenId < 1000 ? item?.tokenId < 100 ? item?.tokenId < 10 ? "000" + item?.tokenId : "00" + item?.tokenId : "0" + item?.tokenId : item?.tokenId
+                        item?.tokenId < 1000 ? item?.tokenId < 100 ? item?.tokenId < 10 ?
+                            "000" + `${parseInt(item?.tokenId)+1}` : "00" + `${parseInt(item?.tokenId)+1}` : "0" + `${parseInt(item?.tokenId)+1}` : `${parseInt(item?.tokenId)+1}`
                     }
                     </div>
                 </div>
@@ -87,7 +88,7 @@ const BasicCard = ({item, type}) => {
                                         text-[#fe7700] font-bold text-xs
                                     ">
                                         {
-                                            item?.tokenId < 10000 ? item?.contract?.totalSupply ? `${item?.tokenId}/${item?.contract?.totalSupply}` : item?.tokenId : item?.tokenId
+                                            item?.tokenId < 10000 ? item?.contract?.totalSupply ? `${parseInt(item?.tokenId) + 1}/${item?.contract?.totalSupply}` : `${parseInt(item?.tokenId) + 1}` : `${parseInt(item?.tokenId) + 1}`
                                         }
                             </span>
                         </div>
