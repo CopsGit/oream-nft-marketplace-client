@@ -28,11 +28,23 @@ const Profile = () => {
             flex flex-col justify-center items-start
         ">
             <div className="
-                flex flex-row justify-between items-start w-full h-1/2
+                flex flex-col justify-center items-center w-full h-1/2
+                lg:flex-row lg:justify-between lg:items-start
                 bg-[#e6e7e9]
             ">
+                <div className="
+                    flex flex-col justify-center items-center w-full h-full
+                    visible lg:invisible lg:w-0 lg:h-0 max-w-[650px]
+                ">
+                    <ProfileRight/>
+                </div>
                 <ProfileLeft/>
-                <ProfileRight/>
+                <div className="
+                    flex flex-col justify-center items-center w-0 h-0
+                    invisible lg:visible lg:w-full lg:h-full max-w-[650px]
+                ">
+                    <ProfileRight/>
+                </div>
             </div>
             <div className=" w-full h-1/2 bg-[#e6e7e9]">
                 <DetailActivities/>

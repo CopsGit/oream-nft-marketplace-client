@@ -3,10 +3,13 @@ import {navlinks} from "../../constants";
 import {Link} from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import {useStateContext} from "../../context";
+import {ConnectWallet, useUser} from "@thirdweb-dev/react";
 
 const Navbar = () => {
     const [curPath, setCurPath] = useState(window.location.pathname);
-    const { address, connect } = useStateContext();
+    const { address } = useStateContext();
+
+    console.log(address)
 
     return (
         <div className="
@@ -51,14 +54,22 @@ const Navbar = () => {
                 }
 
             </ul>
-            <button className="
-                        bg-[#fe7700] text-[#fff] font-bold text-base px-4 py-2 rounded-2xl transition duration-300 ease-in-out
-                        hover:bg-[#b15300] hover:text-[#fff] hover:font-bold hover:px-4 hover:py-2
-                    "
-                    onClick={() => connect()}
-            >
-                {address ? address.slice(0, 5) + "..." + address.slice(-3) : "Connect"}
-            </button>
+            {/*<button className="*/}
+            {/*            bg-[#fe7700] text-[#fff] font-bold text-base px-4 py-2 rounded-2xl transition duration-300 ease-in-out*/}
+            {/*            hover:bg-[#b15300] hover:text-[#fff] hover:font-bold hover:px-4 hover:py-2*/}
+            {/*        "*/}
+            {/*        onClick={() => connect()}*/}
+            {/*>*/}
+            {/*    {address ? address.slice(0, 5) + "..." + address.slice(-3) : "Connect"}*/}
+            {/*</button>*/}
+            <ConnectWallet
+                auth={{
+                    loginOptional: false,
+                }}
+                colorMode={"light"}
+                accentColor={"#fe7700"}
+                className=""
+            />
         </div>
     );
 };

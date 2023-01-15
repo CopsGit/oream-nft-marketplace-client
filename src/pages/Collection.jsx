@@ -5,6 +5,7 @@ import CollectionInfo from "../components/Cards/CollectionInfo";
 import CardsList from "../components/Cards/CardsList";
 import {useStateContext} from "../context";
 import {MediaRenderer} from "@thirdweb-dev/react";
+import {Backdrop, CircularProgress} from "@mui/material";
 
 const Collection = () => {
     const {alchemy} = useStateContext();
@@ -50,6 +51,12 @@ const Collection = () => {
             ">
                 <CardsList type={"detail"} items={info?.nfts}/>
             </div>
+            <Backdrop
+                sx={{ color: '#fe7700', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={info === null}
+            >
+                <CircularProgress color="inherit" size={60} thickness={3.9}/>
+            </Backdrop>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import CardsList from "../components/Cards/CardsList";
 import {useStateContext} from "../context";
+import {Backdrop, CircularProgress} from "@mui/material";
 
 const Explore = () => {
     const {alchemy} = useStateContext();
@@ -36,6 +37,12 @@ const Explore = () => {
                 Explore collections
             </p>
             <CardsList items={items} type={"collection"}/>
+            <Backdrop
+                sx={{ color: '#fe7700', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={items === null}
+            >
+                <CircularProgress color="inherit" size={60} thickness={3.9}/>
+            </Backdrop>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React, {createContext, useContext} from 'react';
 import { Network, Alchemy } from "alchemy-sdk";
-import {useAddress, useContract, useContractWrite, useDisconnect, useMetamask} from '@thirdweb-dev/react';
+import {useAddress, useContract, useContractWrite, useDisconnect, useMetamask, useUser} from '@thirdweb-dev/react';
 import {ethers} from 'ethers';
 
 const StateContext = createContext();
@@ -19,8 +19,6 @@ export const StateContextProvider = ({children}) => {
     const alchemy = new Alchemy(alchemySettings);
 
     const address = useAddress();
-    const connect = useMetamask();
-    const disconnect = useDisconnect();
 
     const purchaseNft = async (id, quantity) => {
         const tx = await contract.buyoutListing(id, quantity);
@@ -101,8 +99,6 @@ export const StateContextProvider = ({children}) => {
             value={{
                 address,
                 contract,
-                connect,
-                disconnect,
                 purchaseNft,
                 getActiveListings,
                 makeOffer,

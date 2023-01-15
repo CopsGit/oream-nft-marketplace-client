@@ -2,14 +2,15 @@ import React from 'react';
 import {Grid} from "@mui/material";
 import Social from "./Social";
 import InfoPanel from "./InfoPanel";
+import {useStateContext} from "../../context";
 
 const ProfileLeft = () => {
-
+    const {address} = useStateContext();
 
 
     return (
         <div className="
-            flex flex-col justify-start items-center w-5/12 h-full
+            flex flex-col justify-start items-center h-full
             p-5
         ">
             <div className="
@@ -26,13 +27,13 @@ const ProfileLeft = () => {
                 ">
                     Address:
                     <a href={`
-                        https://etherscan.io/address/0xFF879627bE071319123e49D67cA5b982cE000000
+                        https://etherscan.io/address/${address}
                         `} className="
                         text-[#808080] font-bold text-base
                         hover:text-[#fe7700] cursor-pointer
                         transition-all duration-300 ease-in-out
                     ">
-                        0xFF879627bE071319123e49D67cA5b982cE000000
+                        {address}
                     </a>
                 </div>
                 <p className="
