@@ -37,8 +37,7 @@ const Details = () => {
 
     } , [alchemy]);
 
-    console.log(data)
-    console.log(owner)
+    console.log(data);
 
     return (
         <div className="

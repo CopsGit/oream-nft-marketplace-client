@@ -2,6 +2,7 @@ import React, {createContext, useContext} from 'react';
 import { Network, Alchemy } from "alchemy-sdk";
 import {useAddress, useContract, useContractWrite, useDisconnect, useMetamask, useUser} from '@thirdweb-dev/react';
 import {ethers} from 'ethers';
+import {NATIVE_TOKEN_ADDRESS} from "@thirdweb-dev/sdk";
 
 const StateContext = createContext();
 const contractAddress = import.meta.env.VITE_APP_CONTRACT_ADDRESS;
@@ -68,21 +69,14 @@ export const StateContextProvider = ({children}) => {
         return tx;
     }
 
-    const makeListing = async (assetContractAddress, currencyContractAddress, buyoutPricePerToken, listingDurationInSeconds, tokenId) => {
+    const makeListing = async (assetContractAddress, tokenId, buyoutPricePerToken) => {
         const listing = {
-            // address of the NFT contract the asset you want to list is on
             assetContractAddress,
-            // token ID of the asset you want to list
             tokenId,
-            // when should the listing open up for offers
             startTimestamp: new Date(),
-            // how long the listing will be open for
-            listingDurationInSeconds,
-            // how many of the asset you want to list
+            listingDurationInSeconds: 86400,
             quantity: 1,
-            // address of the currency contract that will be used to pay for the listing
-            currencyContractAddress,
-            // how much the asset will be sold for
+            currencyContractAddress: NATIVE_TOKEN_ADDRESS,
             buyoutPricePerToken,
         }
 

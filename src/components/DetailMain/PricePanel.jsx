@@ -1,12 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {eth} from "../../assets";
+import {useStateContext} from "../../context";
 
 const PricePanel = ({curItem, owner}) => {
 
+    const {makeListing} = useStateContext();
+
+    const [price, setPrice] = useState(null);
+    const [res, setRes] = useState(null);
 
     const handleSell = async () => {
-        console.log("sell");
+        const r = makeListing(curItem.contract.address, curItem.tokenId, price);
+        console.log(
+            r.then((res) => {
+                setRes(res);
+            })
+        )
     }
+
+    console.log(res)
 
     return (
         <div className="
@@ -48,7 +60,10 @@ const PricePanel = ({curItem, owner}) => {
                             flex flex-row justify-center items-center mt-5
                             w-2/3 h-10 rounded-xl bg-[#e6e7e9] px-2 mx-1
                             focus:outline-[#fe7700]
-                        " placeholder={"Enter your price"}/>
+                        " placeholder={"Enter your price"}
+                        onChange={(e) => setPrice(e.target.value)}
+                        value={price?.toString() || ""}
+                        />
                         <button className="
                     flex flex-row justify-center items-center hover:border-[#fe7700] border-2 border-[#fe7700]
                     w-1/3 h-10 mt-5 mx-1 rounded-xl bg-[#fe7700] text-[#fff] font-bold
