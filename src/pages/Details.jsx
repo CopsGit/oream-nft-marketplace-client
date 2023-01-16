@@ -14,16 +14,31 @@ const Details = () => {
     const tokenId = rawContractAddress.split("&")[1];
 
     const [data, setData] = useState(null);
+    const [owner, setOwner] = useState(null);
+
     useEffect(() => {
-        alchemy && alchemy.nft.getNftMetadata(
-            contractAddress,
-            tokenId
-        ).then((data) => {
-            setData(data);
-        })
+        const fetchData = async () => {
+            alchemy.nft.getNftMetadata(
+                contractAddress,
+                tokenId
+            ).then((data) => {
+                setData(data);
+            })
+            alchemy.nft.getOwnersForNft(
+                contractAddress,
+                tokenId
+            ).then(
+                (data) => {
+                    setOwner(data);
+                }
+            );
+        }
+        alchemy && fetchData();
+
     } , [alchemy]);
 
     console.log(data)
+    console.log(owner)
 
     return (
         <div className="
@@ -34,8 +49,8 @@ const Details = () => {
             <div className="w-full h-full bg-[#e6e7e9]
             flex flex-row justify-center items-start
         ">
-                <Left curItem={data}/>
-                <Right curItem={data}/>
+                <Left curItem={data} />
+                <Right curItem={data} owner={owner}/>
             </div>
             <div className="
                 flex flex-col justify-start items-center w-full h-1/2

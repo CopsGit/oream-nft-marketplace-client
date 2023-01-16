@@ -2,7 +2,7 @@ import React from 'react';
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PricePanel from "./PricePanel";
 
-const DetailRightTop = ({curItem}) => {
+const DetailRightTop = ({curItem, owner}) => {
     return (
         <div className="
                 flex flex-col justify-center items-start
@@ -42,7 +42,7 @@ const DetailRightTop = ({curItem}) => {
                         {curItem?.contract.address}
                     </span>
             </a>
-            <PricePanel curItem={curItem}/>
+            <PricePanel curItem={curItem}  owner={owner}/>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import {eth} from "../../assets";
 
-const Offers = ({curItem}) => {
+const Offers = ({curItem, owner}) => {
     const offers = useSelector(state => state.item.offers);
     console.log(offers);
     return (

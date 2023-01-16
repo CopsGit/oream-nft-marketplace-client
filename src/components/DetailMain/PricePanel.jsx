@@ -1,7 +1,13 @@
 import React from 'react';
 import {eth} from "../../assets";
 
-const PricePanel = ({curItem}) => {
+const PricePanel = ({curItem, owner}) => {
+
+
+    const handleSell = async () => {
+        console.log("sell");
+    }
+
     return (
         <div className="
                 flex flex-col justify-between items-center
@@ -32,26 +38,48 @@ const PricePanel = ({curItem}) => {
                     <span className="text-lg font-bold text-[#fe7700]">{curItem?.floorPrice || "N/A"} ETH</span>
                 </p>
             </div>
-            <div className="
+            {
+                owner ? (
+                    <div className="
                 flex flex-row justify-between items-center
                 w-full
             ">
-                <button className="
+                        <input type="number" className="
+                            flex flex-row justify-center items-center mt-5
+                            w-2/3 h-10 rounded-xl bg-[#e6e7e9] px-2 mx-1
+                            focus:outline-[#fe7700]
+                        " placeholder={"Enter your price"}/>
+                        <button className="
+                    flex flex-row justify-center items-center hover:border-[#fe7700] border-2 border-[#fe7700]
+                    w-1/3 h-10 mt-5 mx-1 rounded-xl bg-[#fe7700] text-[#fff] font-bold
+                    hover:bg-[#fff] hover:text-[#fe7700] transition-all duration-300 cursor-pointer
+                " onClick={handleSell}>
+                            Sell
+                        </button>
+                    </div>
+                ) : (
+                    <div className="
+                flex flex-row justify-between items-center
+                w-full
+            ">
+                        <button className="
                     flex flex-row justify-center items-center
                     w-1/2 h-10 mt-5 mx-1 rounded-xl bg-[#fe7700] text-[#fff] font-bold
                     hover:bg-[#fff] hover:text-[#fe7700] hover:border-[#fe7700] border-2 border-[#fe7700]
                     transition-all duration-300 cursor-pointer
                 ">
-                    Purchase
-                </button>
-                <button className="
+                            Purchase
+                        </button>
+                        <button className="
                     flex flex-row justify-center items-center hover:border-[#fe7700] border-2 border-[#fe7700]
                     w-1/2 h-10 mt-5 mx-1 rounded-xl bg-[#fe7700] text-[#fff] font-bold
                     hover:bg-[#fff] hover:text-[#fe7700] transition-all duration-300 cursor-pointer
                 ">
-                    Bid
-                </button>
-            </div>
+                            Bid
+                        </button>
+                    </div>
+                )
+            }
         </div>
     );
 };
