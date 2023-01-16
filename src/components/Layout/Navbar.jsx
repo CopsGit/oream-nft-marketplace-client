@@ -54,14 +54,6 @@ const Navbar = () => {
                 }
 
             </ul>
-            {/*<button className="*/}
-            {/*            bg-[#fe7700] text-[#fff] font-bold text-base px-4 py-2 rounded-2xl transition duration-300 ease-in-out*/}
-            {/*            hover:bg-[#b15300] hover:text-[#fff] hover:font-bold hover:px-4 hover:py-2*/}
-            {/*        "*/}
-            {/*        onClick={() => connect()}*/}
-            {/*>*/}
-            {/*    {address ? address.slice(0, 5) + "..." + address.slice(-3) : "Connect"}*/}
-            {/*</button>*/}
             <ConnectWallet
                 auth={{
                     loginOptional: false,

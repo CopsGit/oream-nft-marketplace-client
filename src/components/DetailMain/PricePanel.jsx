@@ -1,18 +1,31 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {eth} from "../../assets";
 import {useStateContext} from "../../context";
 import {Alert, Snackbar} from "@mui/material";
 
 const PricePanel = ({curItem, owner}) => {
 
-    const {makeListing} = useStateContext();
+    const {makeListing, getOneNftListing} = useStateContext();
 
     const [price, setPrice] = useState(null);
+    const [input, setInput] = useState(null);
     const [res, setRes] = useState(null);
     const [open, setOpen] = useState(false);
 
+    console.log(curItem);
+
+    useEffect(() => {
+        const getListing = async () => {
+            let listing = await getOneNftListing(curItem.contract.address, curItem.tokenId)
+            console.log(listing)
+            setPrice(listing?.buyoutCurrencyValuePerToken?.displayValue)
+        }
+        getListing().then();
+    }, [res, curItem]);
+
+
     const handleSell = async () => {
-        const r = makeListing(curItem.contract.address, curItem.tokenId, price);
+        const r = await makeListing(curItem.contract.address, curItem.tokenId, input);
         console.log(
             r.then((res) => {
                 setRes(res);
@@ -45,7 +58,7 @@ const PricePanel = ({curItem, owner}) => {
                     <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                    <span className="text-lg font-bold text-[#fe7700]">{curItem?.floorPrice || "N/A"} ETH</span>
+                    <span className="text-lg font-bold text-[#fe7700]">{price || "N/A"} ETH</span>
                 </p>
                 <p className="
                     text-xs font-bold text-[#808080] mt-1
@@ -68,16 +81,18 @@ const PricePanel = ({curItem, owner}) => {
                             flex flex-row justify-center items-center mt-5
                             w-2/3 h-10 rounded-xl bg-[#e6e7e9] px-2 mx-1
                             focus:outline-[#fe7700]
-                        " placeholder={"Enter your price"}
-                        onChange={(e) => setPrice(e.target.value)}
-                        value={price?.toString() || ""}
+                        " placeholder={
+                            price ? `Current Price: ${price} ETH` : "Enter your price"
+                        }
+                        onChange={(e) => setInput(e.target.value)}
+                        value={input?.toString() || ""}
                         />
                         <button className="
                     flex flex-row justify-center items-center hover:border-[#fe7700] border-2 border-[#fe7700]
                     w-1/3 h-10 mt-5 mx-1 rounded-xl bg-[#fe7700] text-[#fff] font-bold
                     hover:bg-[#fff] hover:text-[#fe7700] transition-all duration-300 cursor-pointer
                 " onClick={handleSell}>
-                            List
+                            {price ? "Update" : "List"}
                         </button>
                     </div>
                 ) : (

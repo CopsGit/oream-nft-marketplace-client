@@ -26,17 +26,26 @@ export const StateContextProvider = ({children}) => {
     }
 
     const getActiveListings = async () => {
-        const listings = await contract.call('getActiveListings');
+        const listings = await contract.getActiveListings();
         console.log(listings)
-        return listings.map((listing, i) => ({
-            owner: listing.owner,
-            title: listing.title,
-            description: listing.description,
-            price: ethers.utils.formatEther(listing.price.toString()),
-            quantity: listing.quantity.toNumber(),
-            image: listing.image,
-            pId: i
-        }));
+        return listings
+    }
+
+    const getOneNftListing = async (contractAddress, id) => {
+        const listing = await contract.getActiveListings({
+            tokenId: id,
+            tokenContract: contractAddress
+        })
+        console.log(listing)
+        return listing[0]
+    }
+
+    const getCollectionListings = async (contractAddress) => {
+        const listings = await contract.call('getActiveListings', {
+            tokenContract: contractAddress
+        });
+        console.log(listings)
+        return listings
     }
 
     const getAllListings = async () => {
@@ -95,6 +104,8 @@ export const StateContextProvider = ({children}) => {
                 contract,
                 purchaseNft,
                 getActiveListings,
+                getOneNftListing,
+                getCollectionListings,
                 makeOffer,
                 makeListing,
                 getAllOffersOfOneListing,
