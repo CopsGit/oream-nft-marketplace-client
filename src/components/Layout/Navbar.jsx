@@ -8,6 +8,7 @@ import {ConnectWallet, useUser} from "@thirdweb-dev/react";
 const Navbar = () => {
     const [curPath, setCurPath] = useState(window.location.pathname);
     const { address } = useStateContext();
+    const [input, setInput] = useState("");
 
     console.log(address)
 
@@ -33,7 +34,14 @@ const Navbar = () => {
                 <input type="text" className="
                     w-full h-full ml-2 bg-transparent text-[#fe7700] font-bold focus: border-none
                     focus:outline-none focus: text-[#fe7700] transition duration-600 ease-in-out
-                " placeholder={"Search"} />
+                " value={input} placeholder={"Search Collections by contract address"}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                    if(e.key === "Enter") {
+                        window.location.href = `/collection/${input}`;
+                }
+                }}
+                />
             </div>
             <ul className="
                     flex flex-row space-x-5 text-base font-medium text-[#fe7700] cursor-pointer h-10
