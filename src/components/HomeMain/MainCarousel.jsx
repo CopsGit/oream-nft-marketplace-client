@@ -26,13 +26,6 @@ const MainCarousel = () => {
                 ">
                         {data[current].name}
                     </p>
-                    {/*<div className="*/}
-                    {/*    flex flex-row justify-center items-center h-10 w-1/2 ml-2*/}
-                    {/*    rounded-2xl shadow-lg text-[#fe7700] font-bold text-sm*/}
-                    {/*    border-[#fe7700] border-2*/}
-                    {/*">*/}
-                    {/*    Floor Price : 0.1 ETH*/}
-                    {/*</div>*/}
                 </div>
 
                 <p className="
@@ -65,7 +58,9 @@ const MainCarousel = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
-                    <img src={data[current].image} alt=""/>
+                    <img className="
+                        w-full object-cover
+                    " src={data[current].image} alt=""/>
                     <button className="
                         flex flex-row justify-center items-center h-12 w-12
                         bg-[#fff] rounded-full shadow-xl text-[#fe7700]

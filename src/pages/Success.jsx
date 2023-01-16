@@ -19,7 +19,7 @@ const Success = () => {
         <div className="
                         flex flex-col justify-start bg-[#e6e7e9] items-center w-11/12 mx-auto mt-3
             rounded-3xl shadow-2xl shadow-[#ed3c00] overflow-y-auto
-            {/*h-5/6 */} p-5 min-h-screen
+            max-w-screen-2xl p-5 min-h-screen
         ">
             <p className="
                         text-[#fe7700] font-bold text-5xl

@@ -35,7 +35,7 @@ const Collection = () => {
     return (
         <div className="
                         flex flex-col justify-center bg-[#e6e7e9] items-center w-11/12 mx-auto mt-3
-            rounded-3xl shadow-2xl shadow-[#ed3c00] overflow-y-auto
+            rounded-3xl shadow-2xl shadow-[#ed3c00] overflow-y-auto max-w-screen-2xl
         ">
 
             <div className="

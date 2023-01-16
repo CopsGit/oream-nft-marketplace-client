@@ -14,7 +14,7 @@ const Navbar = () => {
     return (
         <div className="
             flex flex-row justify-between bg-[#fff] items-center w-11/12 h-16 mx-auto my-5 p-5
-            rounded-3xl shadow-lg text-base
+            rounded-3xl shadow-lg text-base  max-w-screen-2xl
         ">
             <Link to={"/"}>
                 <h1 className="

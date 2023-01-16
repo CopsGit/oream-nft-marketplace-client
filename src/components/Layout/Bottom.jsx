@@ -14,7 +14,7 @@ const Bottom = () => {
     }
     return (
         <div className="
-            flex flex-row justify-between items-center w-11/12 h-8 mx-auto my-3 px-5 text-[#fff] text-sm
+            flex flex-row justify-between items-center w-11/12 h-8 mx-auto my-3 px-5 text-[#fff] text-sm  max-w-screen-2xl
         ">
             <div className="
                 flex flex-row space-x-5

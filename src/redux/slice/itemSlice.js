@@ -8,7 +8,7 @@ const initialState = {
         {
             id: 1,
             name: "Oream Series 1",
-            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
+            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg",
             description: des,
             floorPrice: 0.1,
             Volume24h: 20,
@@ -23,7 +23,7 @@ const initialState = {
         {
             id: 2,
             name: "Oream Series 2",
-            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
+            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg",
             description: des,
             floorPrice: 0.1,
             Volume24h: 20,
@@ -38,7 +38,7 @@ const initialState = {
         {
             id: 3,
             name: "Oream Series 3",
-            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
+            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg",
             description: des,
             floorPrice: 0.1,
             Volume24h: 20,
@@ -53,7 +53,7 @@ const initialState = {
         {
             id: 4,
             name: "Oream Series 4",
-            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
+            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg",
             description: des,
             floorPrice: 0.1,
             Volume24h: 20,
@@ -68,7 +68,7 @@ const initialState = {
         {
             id: 5,
             name: "Oream Series 5",
-            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg?width=1101&height=484",
+            image: "https://media.discordapp.net/attachments/1003898685656141954/1059241437566337055/image0.jpg",
             description: des,
             floorPrice: 0.1,
             Volume24h: 20,

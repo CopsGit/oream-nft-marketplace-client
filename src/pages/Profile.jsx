@@ -35,7 +35,7 @@ const Profile = () => {
         <div className="
                         flex flex-col justify-center bg-[#e6e7e9] items-center w-11/12 mx-auto mt-3
             rounded-3xl shadow-2xl shadow-[#ed3c00] overflow-y-auto
-            {/*h-5/6 */} p-3
+            max-w-screen-2xl p-3
         ">
             <div className="w-full h-full bg-[#e6e7e9]
             flex flex-col justify-center items-start
