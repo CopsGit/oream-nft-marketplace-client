@@ -68,7 +68,6 @@ const Navbar = () => {
                 }}
                 colorMode={"light"}
                 accentColor={"#fe7700"}
-                className=""
             />
         </div>
     );

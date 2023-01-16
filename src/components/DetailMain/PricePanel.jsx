@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {eth} from "../../assets";
 import {useStateContext} from "../../context";
+import {Alert, Snackbar} from "@mui/material";
 
 const PricePanel = ({curItem, owner}) => {
 
@@ -8,17 +9,24 @@ const PricePanel = ({curItem, owner}) => {
 
     const [price, setPrice] = useState(null);
     const [res, setRes] = useState(null);
+    const [open, setOpen] = useState(false);
 
     const handleSell = async () => {
         const r = makeListing(curItem.contract.address, curItem.tokenId, price);
         console.log(
             r.then((res) => {
                 setRes(res);
+                setOpen(true);
             })
         )
     }
 
     console.log(res)
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
 
     return (
         <div className="
@@ -69,7 +77,7 @@ const PricePanel = ({curItem, owner}) => {
                     w-1/3 h-10 mt-5 mx-1 rounded-xl bg-[#fe7700] text-[#fff] font-bold
                     hover:bg-[#fff] hover:text-[#fe7700] transition-all duration-300 cursor-pointer
                 " onClick={handleSell}>
-                            Sell
+                            List
                         </button>
                     </div>
                 ) : (
@@ -95,6 +103,30 @@ const PricePanel = ({curItem, owner}) => {
                     </div>
                 )
             }
+            <Snackbar
+                open={open}
+                autoHideDuration={5000000}
+                onClose={handleClose}
+                sx={{
+                    position: 'fixed',
+                    bottom: '24px !important',
+                    left: `auto !important`,
+                    right: '24px !important',
+                    width: '20%',
+                }}
+            >
+                {
+                    res?.status === 1 ? (
+                        <Alert onClose={handleClose}  severity="success" sx={{ width: '100%' }}>
+                            Successfully listed!
+                        </Alert>
+                    ) : (
+                        <Alert onClose={handleClose}  severity="error" sx={{ width: '100%' }}>
+                            Failed to list!
+                        </Alert>
+                    )
+                }
+            </Snackbar>
         </div>
     );
 };
