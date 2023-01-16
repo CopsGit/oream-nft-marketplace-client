@@ -4,8 +4,7 @@ import HomeCollectionCard from "../Cards/HomeCollectionCard";
 import {useSelector} from "react-redux";
 import {Grid} from "@mui/material";
 
-const ItemList = () => {
-    const data = useSelector(state => state.item.data);
+const ItemList = ({items}) => {
 
     return (
         <div className="
@@ -23,7 +22,7 @@ const ItemList = () => {
                     h-full w-full
                 "
             >
-                {data.map((item, index) => (
+                {items.map((item, index) => (
                     <Grid
                         item xs={12} sm={4} md={3} lg={2.4} key={index}
                     >

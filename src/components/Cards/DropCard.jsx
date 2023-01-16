@@ -94,12 +94,12 @@ const DropCard = ({contractAddress}) => {
                         {count.totalSupply}
                     </span>
                 </p>
-                <div className="
-                    text-xl font-bold text-white bg-[#fe7700] rounded-3xl
-                    w-full h-12 shadow shadow-[#ed3c00] overflow-hidden
-                    flex flex-row justify-center items-center
-                    transition-all duration-300 ease-in-out transform hover:scale-105
-                ">
+                {/*<div className="*/}
+                {/*    text-xl font-bold text-white bg-[#fe7700] rounded-3xl*/}
+                {/*    w-full h-12 shadow shadow-[#ed3c00] overflow-hidden*/}
+                {/*    flex flex-row justify-center items-center*/}
+                {/*    transition-all duration-300 ease-in-out transform hover:scale-105*/}
+                {/*">*/}
                     <Web3Button
                         contractAddress={contractAddress}
                         action={(contract) => contract.erc721.claim(1)}
@@ -114,7 +114,7 @@ const DropCard = ({contractAddress}) => {
                             Claim NFT
                         </p>
                     </Web3Button>
-                </div>
+                {/*</div>*/}
                 <Backdrop
                     sx={{ color: '#fe7700', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                     open={nft === null}

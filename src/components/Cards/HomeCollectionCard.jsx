@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 import {eth} from "../../assets";
 import {Link, useNavigate} from "react-router-dom";
+import {MediaRenderer} from "@thirdweb-dev/react";
 
 const HomeCollectionCard = ({item, type}) => {
     const [show, setShow] = useState(false);
     const navigate = useNavigate()
 
     const handleClick = () => {
-        navigate(`/${type}/${item.id}`)
+        navigate(`/${type}/${item.nfts[0].contract.address}`)
         scroll(0, 0)
         window.location.reload()
     }
@@ -28,7 +29,7 @@ const HomeCollectionCard = ({item, type}) => {
                         (e) => {setShow(false)}
                     }
             >
-                <img src={item.image} alt="" className={`
+                <img src={`https://gateway.ipfscdn.io/ipfs/${item?.nfts[0].rawMetadata?.image?.split("ipfs://")[1]}`} alt="" className={`
                     h-full w-full object-cover ${show ? "opacity-50" : "opacity-100"}
                     transition duration-300 ease-in-out
                     `}/>
@@ -40,9 +41,8 @@ const HomeCollectionCard = ({item, type}) => {
                         flex flex-row justify-center items-center
                         h-12 w-11/12 text-[#fff]
                         text-sm font-bold
-
                     ">
-                        {item.name}
+                        {item?.nfts[0]?.contract.name}
                     </div>
                     <div className="
                         flex flex-row justify-center items-center
@@ -55,7 +55,7 @@ const HomeCollectionCard = ({item, type}) => {
                                     flex flex-row justify-center items-center
                                 ">
                             <img src={eth} className="h-4 w-4" alt=""/>
-                            {item.floorPrice}
+                            {0.1}
                         </div>
                     </div>
                     <button onClick={handleClick} className="
@@ -85,7 +85,7 @@ const HomeCollectionCard = ({item, type}) => {
                         <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                        {item.floorPrice}
+                        {0.1}
                     </div>
                 </div>
                 <div className="
@@ -105,7 +105,7 @@ const HomeCollectionCard = ({item, type}) => {
                         <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                        {item.Volume24h}
+                        {20}
                     </div>
                 </div>
             </div>
