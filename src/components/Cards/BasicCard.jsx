@@ -66,7 +66,7 @@ const BasicCard = ({item, type}) => {
                             <img src={eth} className="
                                         h-4 w-4
                                         " alt=""/>
-                            {item?.floorPrice ? item?.floorPrice : "Unlisted"}
+                            {item?.listing?.buyoutCurrencyValuePerToken?.displayValue ? item?.listing?.buyoutCurrencyValuePerToken?.displayValue : "Unlisted"}
                         </div>
                     </div>
                     <div className="

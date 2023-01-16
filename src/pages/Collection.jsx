@@ -12,15 +12,23 @@ const Collection = () => {
     const [info, setInfo] = useState(null);
     const contractAddress = window.location.pathname.split("/")[2];
     useEffect(() => {
-        alchemy && alchemy.nft
-            .getNftsForContract(contractAddress)
-            .then((data) => {
-            setInfo(data);
-        })
         const getListing = async () => {
+            const res = await alchemy.nft.getNftsForContract(contractAddress)
+            console.log(res);
             let listings = await getCollectionListings(contractAddress)
-            console.log(listings)
-            // setPrice(listing?.buyoutCurrencyValuePerToken?.displayValue)
+            listings?.map((listing) => {
+                listing.tokenId = listing.tokenId.toString()
+                res.nfts.filter((nft) => {
+                    if (nft.tokenId === listing.tokenId) {
+                        nft.listing = listing
+                    }
+                })
+                res.nfts.sort((a, b) => {
+                    return parseFloat(a.listing?.buyoutCurrencyValuePerToken?.displayValue ) - parseFloat(b.listing?.buyoutCurrencyValuePerToken?.displayValue)
+                })
+            })
+            console.log(res)
+            setInfo(res);
         }
         getListing().then();
     } , [alchemy]);
