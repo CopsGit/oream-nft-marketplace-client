@@ -23,9 +23,6 @@ const Collection = () => {
                         nft.listing = listing
                     }
                 })
-                res.nfts.sort((a, b) => {
-                    return parseFloat(a.listing?.buyoutCurrencyValuePerToken?.displayValue ) - parseFloat(b.listing?.buyoutCurrencyValuePerToken?.displayValue)
-                })
             })
             console.log(res)
             setInfo(res);
