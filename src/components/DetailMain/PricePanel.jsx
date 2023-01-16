@@ -26,12 +26,10 @@ const PricePanel = ({curItem, owner}) => {
 
     const handleSell = async () => {
         const r = await makeListing(curItem.contract.address, curItem.tokenId, input);
-        console.log(
-            r.then((res) => {
-                setRes(res);
-                setOpen(true);
-            })
-        )
+        console.log(r);
+        setRes(r);
+        setOpen(true);
+        setInput(null);
     }
 
     console.log(res)
@@ -120,7 +118,7 @@ const PricePanel = ({curItem, owner}) => {
             }
             <Snackbar
                 open={open}
-                autoHideDuration={5000000}
+                autoHideDuration={5000}
                 onClose={handleClose}
                 sx={{
                     position: 'fixed',
@@ -131,7 +129,7 @@ const PricePanel = ({curItem, owner}) => {
                 }}
             >
                 {
-                    res?.status === 1 ? (
+                    res?.receipt?.status === 1 ? (
                         <Alert onClose={handleClose}  severity="success" sx={{ width: '100%' }}>
                             Successfully listed!
                         </Alert>

@@ -41,9 +41,9 @@ export const StateContextProvider = ({children}) => {
     }
 
     const getCollectionListings = async (contractAddress) => {
-        const listings = await contract.call('getActiveListings', {
+        const listings = await contract.getActiveListings({
             tokenContract: contractAddress
-        });
+        })
         console.log(listings)
         return listings
     }

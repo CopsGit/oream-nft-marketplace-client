@@ -8,7 +8,7 @@ import {MediaRenderer} from "@thirdweb-dev/react";
 import {Backdrop, CircularProgress} from "@mui/material";
 
 const Collection = () => {
-    const {alchemy} = useStateContext();
+    const {alchemy, getCollectionListings} = useStateContext();
     const [info, setInfo] = useState(null);
     const contractAddress = window.location.pathname.split("/")[2];
     useEffect(() => {
@@ -17,6 +17,12 @@ const Collection = () => {
             .then((data) => {
             setInfo(data);
         })
+        const getListing = async () => {
+            let listings = await getCollectionListings(contractAddress)
+            console.log(listings)
+            // setPrice(listing?.buyoutCurrencyValuePerToken?.displayValue)
+        }
+        getListing().then();
     } , [alchemy]);
 
     console.log(info)
