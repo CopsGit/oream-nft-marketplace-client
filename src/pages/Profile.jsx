@@ -9,14 +9,27 @@ import CardsList from "../components/Cards/CardsList";
 const Profile = () => {
     const {alchemy,address} = useStateContext();
     const [nft, setNft] = useState(null);
+    const [pageKey, setPageKey] = useState(null);
 
     useEffect(() => {
-        address && alchemy.nft.getNftsForOwner(address).then((nfts) => {
-            setNft(nfts);
+        address && alchemy.nft.getNftsForOwner(
+            address,
+            {
+                pageKey: pageKey,
+                pageSize: 100,
+            }
+        ).then((nfts) => {
+            setNft(
+                nft?.concat(nfts.ownedNfts) || nfts.ownedNfts
+            );
         });
-    } , [address]);
+    } , [address, pageKey]);
 
-    console.log(nft?.ownedNfts);
+    console.log(nft);
+
+    const handleMore = () => {
+        setPageKey(nft?.pageKey);
+    }
 
     return (
         <div className="
@@ -46,9 +59,23 @@ const Profile = () => {
                     <ProfileRight/>
                 </div>
             </div>
-            <div className=" w-full h-1/2 bg-[#e6e7e9]">
+            <div className=" w-full h-1/2 bg-[#e6e7e9] flex flex-col justify-center items-center">
                 <DetailActivities/>
-                <CardsList items={nft?.ownedNfts} type="detail" title={"NFTs Owned"}/>
+                <CardsList items={nft} type="detail" title={"NFTs Owned"}/>
+                {
+                    nft?.length > 0 && nft?.length % 100 === 0 && (
+                        <button className="
+                    flex flex-row justify-center items-center w-5/6 h-10
+                    bg-[#fe7700] rounded-3xl shadow-2xl shadow-[#ed3c00]
+                    text-[#fff] text-xl font-bold my-3 cursor-pointer
+                    border-2 border-[#fe7700] hover:bg-[#fff] hover:text-[#fe7700]
+                    hover:bg-[#fff] hover:shadow-none hover:text-[#fe7700]
+                    transition-all duration-300 ease-in-out
+                " onClick={handleMore}>
+                            Load More
+                        </button>
+                    )
+                }
             </div>
             </div>
         </div>
