@@ -13,8 +13,8 @@ const Navbar = () => {
 
     return (
         <div className="
-            flex flex-row justify-between bg-[#fff] items-center w-11/12 h-16 mx-auto my-5 p-5
-            rounded-3xl shadow-lg text-base  max-w-screen-2xl
+            flex flex-row justify-between bg-[#fff] items-center w-0 h-16 mx-auto my-5 p-5
+            rounded-3xl shadow-lg text-base  max-w-screen-2xl invisible lg:visible lg:w-11/12
         ">
             <Link to={"/"}>
                 <h1 className="

@@ -14,7 +14,7 @@ const HomeCollectionCard = ({item, type}) => {
 
     return (
         <div className="
-                            flex flex-col h-full mx-1
+                            flex flex-col h-full
                         ">
             <div className="
                 h-full w-full overflow-hidden
