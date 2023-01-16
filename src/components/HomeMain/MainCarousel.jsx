@@ -1,15 +1,17 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {useStateContext} from "../../context";
+import {MediaRenderer} from "@thirdweb-dev/react";
 
-const MainCarousel = () => {
+const MainCarousel = ({items}) => {
     const [current, setCurrent] = React.useState(0);
 
-    const data = useSelector(state => state.item.data);
+
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrent(current => current === data.length - 1 ? 0 : current + 1);
+            setCurrent(current => current === items?.length - 1 ? 0 : current + 1);
         }, 5000);
         return () => clearInterval(interval);
     }, [current]);
@@ -24,7 +26,7 @@ const MainCarousel = () => {
                     <p className="
                     text-3xl text-[#fe7700] font-bold w-full text-left mb-1
                 ">
-                        {data[current].name}
+                        {items[current]?.nfts[0]?.contract.name}
                     </p>
                 </div>
 
@@ -33,11 +35,11 @@ const MainCarousel = () => {
                     flex flex-row justify-center items-center h-20
                 ">
                     {
-                        data[current].description.length > 300 ? data[current].description.substring(0, 300) + "..." : data[current].description
+                        items[current]?.nfts[0]?.description?.length > 300 ? items[current]?.nfts[0]?.description.substring(0, 300) + "..." : items[current]?.nfts[0]?.description
                     }
                 </p>
                 <div className="
-                    flex flex-row justify-center items-center h-50 w-full
+                    flex flex-row justify-center items-center h-96 w-full
                     bg-[#e6e7e9] rounded-2xl shadow-lg overflow-hidden
                 ">
                     <button className="
@@ -50,7 +52,7 @@ const MainCarousel = () => {
                                 if (current > 0) {
                                     setCurrent(current - 1)
                                 } else {
-                                    setCurrent(data.length - 1)
+                                    setCurrent(items?.length - 1)
                                 }
                             }}
                     >
@@ -58,9 +60,14 @@ const MainCarousel = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
-                    <img className="
-                        w-full object-cover
-                    " src={data[current].image} alt=""/>
+                    <MediaRenderer
+                        src={
+                            items[current]?.nfts[0].rawMetadata?.image || "ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+                        }
+                        alt="itemMedia"
+                        className="w-full object-cover h-50
+                    "
+                    />
                     <button className="
                         flex flex-row justify-center items-center h-12 w-12
                         bg-[#fff] rounded-full shadow-xl text-[#fe7700]
@@ -68,7 +75,7 @@ const MainCarousel = () => {
                         transition-all duration-300 relative right-8
                     " onClick={
                         () => {
-                            if (current < data.length - 1) {
+                            if (current < items?.length - 1) {
                                 setCurrent(current + 1)
                             } else {
                                 setCurrent(0)
@@ -85,7 +92,7 @@ const MainCarousel = () => {
                     mt-2 relative bottom-7
                 ">
                     {
-                        data.map((item, index) => {
+                        items?.map((item, index) => {
                             return (
                                 <div key={index} className={`
                                     flex flex-row justify-center items-center h-5 w-5
@@ -99,7 +106,7 @@ const MainCarousel = () => {
                             )
                         })
                     }
-                    <Link to={`/collection/${data[current].id}`} className="
+                    <Link to={`/collection/${items[current]?.nfts[0].contract.address}`} className="
                         flex flex-row justify-center items-center h-10 w-1/2 bg-white ml-2
                         cursor-pointer rounded-2xl shadow-lg text-[#fe7700] font-bold
                         border-[#fe7700] border-2 hover:bg-[#fe7700] hover:text-white
