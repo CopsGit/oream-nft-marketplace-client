@@ -34,7 +34,7 @@ const Navbar = () => {
                 <input type="text" className="
                     w-full h-full ml-2 bg-transparent text-[#fe7700] font-bold focus: border-none
                     focus:outline-none focus: text-[#fe7700] transition duration-600 ease-in-out
-                " value={input} placeholder={"Search Collections by contract address"}
+                " value={input} placeholder={"Search Collections by Contract Address"}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => {
                     if(e.key === "Enter") {
