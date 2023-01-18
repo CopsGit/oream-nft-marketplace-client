@@ -18,9 +18,13 @@ const ItemList = ({items}) => {
             <Grid
                 container
                 spacing={1}
-                className="
-                    h-full w-full flex flex-row justify-around
-                "
+                sx={{
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "space-around",
+                    flexDirection: "row",
+                }}
             >
                 {items.map((item, index) => (
                     <Grid
@@ -30,9 +34,13 @@ const ItemList = ({items}) => {
                             justifyContent: 'center',
                             alignItems: 'center',
                             height: {
-                                xs: '100%',
+                                xs: 170,
                                 sm: 170,
                                 md: 300,
+                            },
+                            maxWidth: {
+                                xs: "100px",
+                                sm: "100%",
                             }
                         }}
                     >
