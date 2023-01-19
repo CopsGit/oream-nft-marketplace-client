@@ -7,8 +7,6 @@ import {MediaRenderer} from "@thirdweb-dev/react";
 const MainCarousel = ({items}) => {
     const [current, setCurrent] = React.useState(0);
 
-
-
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent(current => current === items?.length - 1 ? 0 : current + 1);
