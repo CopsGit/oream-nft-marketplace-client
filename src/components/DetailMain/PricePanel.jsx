@@ -5,7 +5,7 @@ import {Alert, Snackbar} from "@mui/material";
 
 const PricePanel = ({curItem, owner}) => {
 
-    const {makeListing, getOneNftListing} = useStateContext();
+    const {makeListing, getOneNftListing, address} = useStateContext();
 
     const [price, setPrice] = useState(null);
     const [input, setInput] = useState(null);
@@ -38,7 +38,6 @@ const PricePanel = ({curItem, owner}) => {
         setOpen(false);
     };
 
-
     return (
         <div className="
                 flex flex-col justify-between items-center
@@ -70,7 +69,7 @@ const PricePanel = ({curItem, owner}) => {
                 </p>
             </div>
             {
-                owner ? (
+                owner?.owners[0] === address?.toLowerCase() ? (
                     <div className="
                 flex flex-row justify-between items-center
                 w-full

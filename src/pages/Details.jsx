@@ -29,6 +29,7 @@ const Details = () => {
                 tokenId
             ).then(
                 (data) => {
+                    console.log(data)
                     setOwner(data);
                 }
             );
