@@ -15,7 +15,12 @@ const App = () => {
                 <Navbar />
 
                 <Routes>
-                    <Route path='*' element={<Home />} />
+                    <Route path='*' element={
+                        <div className="flex flex-col justify-center items-center h-screen">
+                            <h1 className="text-4xl text-white font-bold">404</h1>
+                            <h1 className="text-2xl text-white font-bold">Page Not Found</h1>
+                        </div>
+                    } />
                     <Route path="/" element={<Home />} />
                     <Route path="/explore" element={<Explore />} />
                     <Route path="/search" element={<Search />} />
