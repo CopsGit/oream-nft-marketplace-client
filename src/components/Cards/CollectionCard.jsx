@@ -8,7 +8,7 @@ const CollectionCard = ({item, type}) => {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        navigate(`/${type}/${item?.nfts[0]?.contract.address}`)
+        navigate(`/${type}/${item?.nfts[0]?.contract?.address}`)
         scroll(0, 0)
         window.location.reload()
     }
